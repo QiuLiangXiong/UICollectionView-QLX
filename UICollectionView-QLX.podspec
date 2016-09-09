@@ -8,5 +8,5 @@ s.authors = { 'QiuLiangXiong' => '820686089@qq.com' }
 s.source = { :git => 'https://github.com/QiuLiangXiong/UICollectionView-QLX.git', :tag => "1.0.0" }
 s.requires_arc = true
 s.ios.deployment_target = '7.0'
-s.source_files = 'UICollectionView+QLXDemo/UICollectionView+QLX/*'
+s.source_files = 'UICollectionView+QLXDemo/UICollectionView+QLX/*','UICollectionView+QLXDemo/UICollectionView+QLX/Other/*'
 end
