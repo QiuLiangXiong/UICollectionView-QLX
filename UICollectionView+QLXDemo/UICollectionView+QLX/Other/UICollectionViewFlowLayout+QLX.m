@@ -86,6 +86,14 @@
     return self.scrollDirection == UICollectionViewScrollDirectionVertical;
 }
 
+-(UIEdgeInsets)sectionInsetWithSecion:(NSInteger)section{
+    if ([self.delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)]) {
+        return [self.delegate collectionView:self.collectionView layout:self insetForSectionAtIndex:section];
+    }
+    return self.sectionInset;
+}
+
+
 - (UICollectionViewLayoutAttributes *) firstLayoutAttributeWithSection:(NSUInteger)section{
     if ([self headerSizeWithSection:section].height >= 0.01) {
         return [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
@@ -118,19 +126,37 @@
 
 
 -(UICollectionViewLayoutAttributes *) getDecorationViewAttributesWithSection:(NSInteger)section firstAtt:(UICollectionViewLayoutAttributes *)firstAtt lastAtt:(UICollectionViewLayoutAttributes *)lastAtt{
+    if (firstAtt == nil) {
+        firstAtt = lastAtt;
+    }
     Class cla = [self getDecorationViewClassWithSecion:section];
     if (cla && firstAtt) {
         QLXAssert([cla isSubclassOfClass:[UICollectionReusableView class]], @"cla 必须是 UICollectionReusableView 的子类");
         [self registerClass:cla forDecorationViewOfKind:NSStringFromClass(cla)];
         UICollectionViewLayoutAttributes * att = [UICollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:NSStringFromClass(cla) withIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
         if (self.isVerticalLayout) {
-            CGFloat y = CGRectGetMinY(firstAtt.frame);
-            CGFloat height = CGRectGetMaxY(lastAtt.frame) - y;
-            att.frame = CGRectMake(0, y, self.collectionView.frame.size.width, height);
+            CGFloat minY = CGRectGetMinY(firstAtt.frame);
+            if (firstAtt.representedElementCategory == UICollectionElementCategoryCell) {
+                minY -= [self sectionInsetWithSecion:section].top;
+            }
+            CGFloat maxY = CGRectGetMaxY(lastAtt.frame);
+            if (lastAtt.representedElementCategory == UICollectionElementCategoryCell) {
+                maxY += [self sectionInsetWithSecion:section].bottom;
+            }
+            CGFloat height = maxY - minY;
+            att.frame = CGRectMake(0, minY, self.collectionView.frame.size.width, height);
         }else {
-            CGFloat x = CGRectGetMinX(firstAtt.frame);
-            CGFloat width = CGRectGetMaxX(lastAtt.frame) - x;
-            att.frame = CGRectMake(x, 0, width , self.collectionView.frame.size.height);
+            CGFloat minX = CGRectGetMinX(firstAtt.frame);
+            if (firstAtt.representedElementCategory == UICollectionElementCategoryCell) {
+                minX -= [self sectionInsetWithSecion:section].left;
+            }
+            
+            CGFloat maxX = CGRectGetMaxX(lastAtt.frame);
+            if (lastAtt.representedElementCategory == UICollectionElementCategoryCell) {
+                maxX += [self sectionInsetWithSecion:section].right;
+            }
+            CGFloat width = maxX - minX;
+            att.frame = CGRectMake(minX, 0, width , self.collectionView.frame.size.height);
         }
         att.zIndex = -1;
         return att;
