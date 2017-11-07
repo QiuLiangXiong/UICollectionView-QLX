@@ -43,8 +43,11 @@
     NSArray * attributes = [self qlx_layoutAttributesForElementsInRect:rect];
     if (attributes && self.collectionView.qlx_dataSource && [self.collectionView.qlx_dataSource respondsToSelector:@selector(qlx_decorationViewClassListWithCollectionView:)]) {
         NSMutableArray * atts = [NSMutableArray arrayWithArray:attributes];
+    
         [atts addObjectsFromArray:self.decroationViewAttsArray];
         return atts;
+        
+    
     }
     return attributes;
 }
@@ -73,20 +76,20 @@
     return atts;
 }
 
--(void)setDecroationViewAttsArray:(NSMutableArray *)decroationViewAttsArray{
+- (void)setDecroationViewAttsArray:(NSMutableArray *)decroationViewAttsArray{
     objc_setAssociatedObject(self, @selector(decroationViewAttsArray), decroationViewAttsArray, OBJC_ASSOCIATION_RETAIN);
 }
 
 
--(id<UICollectionViewDelegateFlowLayout>)delegate{
+- (id<UICollectionViewDelegateFlowLayout>)delegate{
     return (id<UICollectionViewDelegateFlowLayout>)self.collectionView.dataSource;
 }
 
--(BOOL)isVerticalLayout{
+- (BOOL)isVerticalLayout{
     return self.scrollDirection == UICollectionViewScrollDirectionVertical;
 }
 
--(UIEdgeInsets)sectionInsetWithSecion:(NSInteger)section{
+- (UIEdgeInsets)sectionInsetWithSecion:(NSInteger)section{
     if ([self.delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)]) {
         return [self.delegate collectionView:self.collectionView layout:self insetForSectionAtIndex:section];
     }
@@ -94,7 +97,7 @@
 }
 
 
-- (UICollectionViewLayoutAttributes *) firstLayoutAttributeWithSection:(NSUInteger)section{
+- (UICollectionViewLayoutAttributes *)firstLayoutAttributeWithSection:(NSUInteger)section{
     if ([self headerSizeWithSection:section].height >= 0.01) {
         return [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
     }else {
@@ -105,7 +108,7 @@
     return nil;
 }
 
-- (UICollectionViewLayoutAttributes *) lastLayoutAttributeWithSection:(NSUInteger)section{
+- (UICollectionViewLayoutAttributes *)lastLayoutAttributeWithSection:(NSUInteger)section{
     if ([self footerSizeWithSection:section].height >= 0.01) {
         return [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter atIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
     }else {
@@ -117,7 +120,7 @@
     return nil;
 }
 
--(CGSize) headerSizeWithSection:(NSInteger)section{
+- (CGSize)headerSizeWithSection:(NSInteger)section{
     if ([self.delegate respondsToSelector:@selector(collectionView:layout:referenceSizeForHeaderInSection:)]) {
         return [self.delegate collectionView:self.collectionView layout:self referenceSizeForHeaderInSection:section];
     }
@@ -125,7 +128,7 @@
 }
 
 
--(UICollectionViewLayoutAttributes *) getDecorationViewAttributesWithSection:(NSInteger)section firstAtt:(UICollectionViewLayoutAttributes *)firstAtt lastAtt:(UICollectionViewLayoutAttributes *)lastAtt{
+- (UICollectionViewLayoutAttributes *)getDecorationViewAttributesWithSection:(NSInteger)section firstAtt:(UICollectionViewLayoutAttributes *)firstAtt lastAtt:(UICollectionViewLayoutAttributes *)lastAtt{
     if (firstAtt == nil) {
         firstAtt = lastAtt;
     }
@@ -165,7 +168,7 @@
     
 }
 
--(Class) getDecorationViewClassWithSecion:(NSInteger) section{
+- (Class)getDecorationViewClassWithSecion:(NSInteger) section{
     if ([self.collectionView.qlx_dataSource respondsToSelector:@selector(qlx_decorationViewClassListWithCollectionView:)]) {
         NSArray * classes = [self.collectionView.qlx_dataSource qlx_decorationViewClassListWithCollectionView:self.collectionView];
         if (section < classes.count ) {
@@ -177,7 +180,7 @@
 }
 
 
--(CGSize) footerSizeWithSection:(NSInteger)section{
+- (CGSize)footerSizeWithSection:(NSInteger)section{
     if ([self.delegate respondsToSelector:@selector(collectionView:layout:referenceSizeForFooterInSection:)]) {
         return [self.delegate collectionView:self.collectionView layout:self referenceSizeForFooterInSection:section];
     }

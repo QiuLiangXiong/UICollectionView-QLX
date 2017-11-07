@@ -1,21 +1,21 @@
 //
-//  UICollectionReusableView+QLX.m
+//  UIView+QLX.m
 //  UICollectionView+QLXDemo
 //
 //  Created by QLX on 16/9/6.
 //  Copyright © 2016年 QLX. All rights reserved.
 //
 
-#import "UICollectionReusableView+QLX.h"
+#import "UIView+QLX.h"
 #import <objc/runtime.h>
 #import "QLXWeakObject.h"
 #import "QMacros.h"
 
-@interface UICollectionReusableView()<UICollectionViewDelegate>
+@interface UIView()<UICollectionViewDelegate>
 
 @end
 
-@implementation UICollectionReusableView(QLX)
+@implementation UIView(QLX)
 
 
 
@@ -57,7 +57,15 @@
     return comproessedSize;
 }
 
+- (void)qlx_viewSizeChanged{
+    [super qlx_viewSizeChanged];
+    self.frame = CGRectZero;
+}
+
 - (CGFloat)qlx_viewWidth{
+    if ([super qlx_viewWidth] > 0) {
+        return [super qlx_viewWidth];
+    }
     if ([self isVerticalLayout]) {
         UIEdgeInsets insets = [self _seciontInset];
         return self.qlx_collectionView.frame.size.width - insets.left - insets.right;
@@ -66,6 +74,9 @@
 }
 
 - (CGFloat)qlx_viewHeight{
+    if ([super qlx_viewHeight] > 0) {
+        return [super qlx_viewHeight];
+    }
     if (![self isVerticalLayout]) {
         UIEdgeInsets insets = [self _seciontInset];
         return self.qlx_collectionView.frame.size.height - insets.top - insets.bottom;
@@ -147,7 +158,10 @@
 }
 
 -(void)setQlx_data:(NSObject *)data{
-    objc_setAssociatedObject(self, @selector(data), data, OBJC_ASSOCIATION_RETAIN);
+    if (self.qlx_data != data) {
+       objc_setAssociatedObject(self, @selector(data), data, OBJC_ASSOCIATION_RETAIN);
+    }
+
 }
 
 -(NSIndexPath *)qlx_indexPath{

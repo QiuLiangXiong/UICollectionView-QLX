@@ -13,7 +13,7 @@
 
 @implementation NSObject(View)
 
-#pragma mark - publick
+#pragma mark - public
 
 -(void)qlx_viewSizeChanged{
     self.qlx_viewWidth = 0;

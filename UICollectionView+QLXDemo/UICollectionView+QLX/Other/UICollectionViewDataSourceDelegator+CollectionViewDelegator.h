@@ -10,6 +10,6 @@
 
 @interface UICollectionViewDataSourceDelegator(CollectionViewDelegator)
 
--(void) updateCollectionViewDelegateIfNeed;
+- (void)updateCollectionViewDelegateIfNeed;
 
 @end

@@ -21,7 +21,7 @@
     });
 }
 
-+(instancetype) createForFlowLayout{
++ (instancetype) createForFlowLayout{
     UICollectionViewFlowLayout * layout = [UICollectionViewFlowLayout new];
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;
@@ -34,17 +34,20 @@
     return instance;
 }
 
-#pragma mark - setter
 
 
--(void)qlx_setDelegate:(id<UICollectionViewDelegate>)delegate{
+#pragma mark - swizzle
+
+- (void)qlx_setDelegate:(id<UICollectionViewDelegate>)delegate{
     [self qlx_setDelegate:delegate];
     if (self.qlx_dataSource) {
         [[self dataSourceDelegator] updateCollectionViewDelegateIfNeed];
     }
 }
 
--(void)setQlx_dataSource:(id<QLXCollectionViewDataSource>)qlx_dataSource{
+
+#pragma mark - setter
+- (void)setQlx_dataSource:(id<QLXCollectionViewDataSource>)qlx_dataSource{
     if (self.qlx_dataSource != qlx_dataSource ) {
         QLXWeakObject * dataSource = [QLXWeakObject new];
         dataSource.weakObject = qlx_dataSource;
@@ -65,12 +68,12 @@
 
 #pragma mark - getter
 
--(id<QLXCollectionViewDataSource>)qlx_dataSource{
+- (id<QLXCollectionViewDataSource>)qlx_dataSource{
     QLXWeakObject * dataSource = objc_getAssociatedObject(self, @selector(qlx_dataSource));
     return dataSource.weakObject;
 }
 
--(UICollectionViewDataSourceDelegator *)dataSourceDelegator{
+- (UICollectionViewDataSourceDelegator *)dataSourceDelegator{
     UICollectionViewDataSourceDelegator * delegator = objc_getAssociatedObject(self, @selector(dataSourceDelegator));
     if (!delegator) {
         delegator = [UICollectionViewDataSourceDelegator new];

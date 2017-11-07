@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NSObject+View.h"
-#import "UICollectionReusableView+QLX.h"
+#import "UIView+QLX.h"
 #import "UICollectionViewCell+QLX.h"
 
 @protocol QLXCollectionViewDataSource;
@@ -20,7 +20,7 @@
 /**
  *  便利构造  产生一个默认系统流布局初始化的UICollectionView对象
  */
-+(instancetype) createForFlowLayout;
++ (instancetype) createForFlowLayout;
 
 
 @end

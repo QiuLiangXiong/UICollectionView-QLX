@@ -1,5 +1,5 @@
 //
-//  UICollectionReusableView+QLX.h
+//  UIView+QLX.h
 //  UICollectionView+QLXDemo
 //
 //  注意： 子类通过重写initWithFrame来初始化 重写init系统不会回调 切记
@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UICollectionReusableView(QLX)
+@interface UIView(QLX)
 
 @property (nonatomic, strong) NSObject * qlx_data;             //数据源
 @property (nonatomic, strong) NSIndexPath * qlx_indexPath;         // 视图所在位置

@@ -18,5 +18,4 @@
 @property(nonatomic , weak) UICollectionView * collectionView;
 @property(nonatomic , weak) id<QLXCollectionViewDataSource> delegate;
 
-
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#define kBlockWeakSelf __weak typeof(&*self) weakSelf = self
 #ifdef DEBUG
 #define QLXAssert(condition , description)  if(!(condition)){ NSLog(@"%@",description); assert(0);}
 #else

@@ -23,7 +23,7 @@
 #pragma mark - getter
 
 
--(id<UICollectionViewDelegate>)collectionViewDelegate{
+- (id<UICollectionViewDelegate>)collectionViewDelegate{
     QLXWeakObject * delegate = objc_getAssociatedObject(self, @selector(collectionViewDelegate));
     return [delegate weakObject];
 }
@@ -31,7 +31,7 @@
 #pragma mark- getter
 
 
--(void)setCollectionViewDelegate:(id<UICollectionViewDelegate>)collectionViewDelegate{
+- (void)setCollectionViewDelegate:(id<UICollectionViewDelegate>)collectionViewDelegate{
     if (self.collectionViewDelegate != collectionViewDelegate) {
         QLXWeakObject * weakObject = [QLXWeakObject new];
         weakObject.weakObject = collectionViewDelegate;
@@ -106,7 +106,7 @@
 }
 
 
--(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.collectionViewDelegate respondsToSelector:@selector(collectionView:willDisplayCell:forItemAtIndexPath:)]) {
         [self.collectionViewDelegate collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
     }
@@ -181,7 +181,7 @@
 }
 
 
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     
     if ([self.collectionViewDelegate respondsToSelector:@selector(scrollViewWillBeginDragging:)]) {
         [self.collectionViewDelegate scrollViewWillBeginDragging:scrollView];
@@ -191,7 +191,7 @@
 
 
 
--(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
     
     if ([self.collectionViewDelegate respondsToSelector:@selector(scrollViewWillEndDragging:withVelocity:targetContentOffset:)]) {
         [self.collectionViewDelegate scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
@@ -212,20 +212,20 @@
     }
 }
 
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if ([self.collectionViewDelegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)]) {
         [self.collectionViewDelegate scrollViewDidEndDecelerating:scrollView];
     }
     
 }
 
--(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
     if ([self.collectionViewDelegate respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)]) {
         [self.collectionViewDelegate scrollViewDidEndScrollingAnimation:scrollView];
     }
 }
 
--(void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale{
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale{
     
     if ([self.collectionViewDelegate respondsToSelector:@selector(scrollViewDidEndZooming:withView:atScale:)]) {
         [self.collectionViewDelegate scrollViewDidEndZooming:scrollView withView:view atScale:scale];
@@ -235,7 +235,7 @@
 
 #pragma mark - publick
 
--(void) updateCollectionViewDelegateIfNeed{
+- (void)updateCollectionViewDelegateIfNeed{
     if (self.collectionView.dataSource) {
         if (self.collectionView.delegate != self) {
             self.collectionViewDelegate = self.collectionView.delegate;
