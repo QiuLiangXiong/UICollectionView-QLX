@@ -103,7 +103,7 @@
        UIView * lastObject = self.contentView.subviews.lastObject;
         if (![lastObject isKindOfClass:viewClass]) {
             UIView * view = [[viewClass alloc] init];
-            if (view) {
+            if ([view isKindOfClass:[UIView class]]) {
                 for (UIView * view in self.contentView.subviews) {
                     [view removeFromSuperview];
                 }

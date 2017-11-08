@@ -15,6 +15,7 @@
 #import "UICollectionViewDataSourceDelegator+CollectionViewDelegator.h"
 #import "QLXWrapViewData.h"
 #import "QLXWrapReuseCollectionViewCell.h"
+#import "QLXWrapReuseCollectionReusableView.h"
 
 
 static NSString * const DefaultCellIdentifier = @"UICollectionViewCell";
@@ -251,6 +252,13 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
     return [QLXWrapReuseCollectionViewCell class];;
 }
 
+- (Class)getRegisterHeaderOrFooterClassWithIdentifierClass:(Class)identifierClass{
+    if ([identifierClass isSubclassOfClass:[UICollectionReusableView class]]) {
+        return identifierClass;
+    }
+    return [QLXWrapReuseCollectionReusableView class];;
+}
+
 - (UICollectionViewCell *)getCacheCellWithReuseIdentifierClass:(Class)identifierClass{
     if (!identifierClass) {
         return nil;
@@ -294,10 +302,11 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
     NSString * identifier = NSStringFromClass(identifierClass);
     UICollectionReusableView * cacheHeader = [self.cacheHeaderDic objectForKey:identifier];
     if (!cacheHeader || ![cacheHeader isKindOfClass:[UICollectionReusableView class]]) {
-        cacheHeader = [[identifierClass alloc] init];
+        Class headerClass = [self getRegisterHeaderOrFooterClassWithIdentifierClass:identifierClass];
+        cacheHeader = [[headerClass alloc] init];
         if ([cacheHeader isKindOfClass:[UICollectionReusableView class]]) {
             cacheHeader.qlx_collectionView = self.collectionView;
-            [self registerHeaderClass:identifierClass];
+            [self registerHeaderClass:headerClass indentifier:identifier];
             [self.cacheHeaderDic setObject:cacheHeader forKey:identifier];
         }else {
             QLXAssert(false, @"identifier is not a className");
@@ -320,9 +329,9 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
         NSString * identifier = NSStringFromClass(identifierClass);
         UICollectionReusableView * cacheHeader = [self.cacheHeaderDic objectForKey:identifier];
         if (!cacheHeader) {
-            Class headerClass = identifierClass;
+            Class headerClass = [self getRegisterHeaderOrFooterClassWithIdentifierClass:identifierClass];
             if (headerClass) {
-                [self registerHeaderClass:headerClass];
+                [self registerHeaderClass:headerClass indentifier:identifier];
                 [self.cacheHeaderDic setObject:headerClass forKey:identifier];
             }else {
                 QLXAssert(false, @"identifier is not a className");
@@ -339,10 +348,11 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
     NSString * identifier = NSStringFromClass(identifierClass);
     UICollectionReusableView * cacheFooter = [self.cacheFooterDic objectForKey:identifier];
     if (!cacheFooter || ![cacheFooter isKindOfClass:[UICollectionReusableView class]]) {
-        cacheFooter = [[identifierClass alloc] init];
+        Class footerClass = [self getRegisterHeaderOrFooterClassWithIdentifierClass:identifierClass];
+        cacheFooter = [[footerClass alloc] init];
         if ([cacheFooter isKindOfClass:[UICollectionReusableView class]]) {
             cacheFooter.qlx_collectionView = self.collectionView;
-            [self registerFooterClass:identifierClass];
+            [self registerFooterClass:footerClass indentifier:identifier];
             [self.cacheFooterDic setObject:cacheFooter forKey:identifier];
         }else {
             QLXAssert(false, @"identifier is not a className");
@@ -356,9 +366,9 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
         NSString * identifier = NSStringFromClass(identifierClass);
         UICollectionReusableView * cacheFooter = [self.cacheFooterDic objectForKey:identifier];
         if (!cacheFooter) {
-            Class footerClass = identifierClass;
+            Class footerClass = [self getRegisterHeaderOrFooterClassWithIdentifierClass:identifierClass];
             if (footerClass) {
-                [self registerFooterClass:footerClass];
+                [self registerFooterClass:footerClass indentifier:identifier];
                 [self.cacheFooterDic setObject:footerClass forKey:identifier];
             }else {
                 QLXAssert(false, @"identifier is not a className");

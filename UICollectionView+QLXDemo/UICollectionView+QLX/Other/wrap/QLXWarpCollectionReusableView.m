@@ -48,7 +48,6 @@
     }
     rootView.qlx_collectionView = self.qlx_collectionView;
     [rootView qlx_reuseWithData:[rootView qlx_data] indexPath:indexPath];
-    rootView.hidden = false;
 }
 
 - (CGSize)qlx_viewSize{
@@ -67,7 +66,6 @@
     }else {
         [rootView qlx_prepareForReuse];
     }
-    rootView.hidden = true;
 }
 
 

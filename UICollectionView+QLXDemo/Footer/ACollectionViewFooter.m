@@ -21,8 +21,20 @@
     return self;
 }
 
+- (void)qlx_reuseWithData:(NSObject *)data indexPath:(NSIndexPath *)indexPath{
+    [super qlx_reuseWithData:data indexPath:indexPath];
+}
+
+- (void)qlx_prepareForReuse{
+    [super qlx_prepareForReuse];
+}
+
 -(CGSize)qlx_viewSize{
-    return CGSizeMake(self.qlx_collectionView.frame.size.width, 20);
+    return CGSizeMake(self.qlx_collectionView.frame.size.width, 50);
+}
+
+- (void)qlx_didSelectCell{
+    
 }
 
 @end

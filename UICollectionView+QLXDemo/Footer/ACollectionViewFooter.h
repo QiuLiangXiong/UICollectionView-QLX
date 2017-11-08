@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ACollectionViewFooter : UICollectionReusableView
+@interface ACollectionViewFooter : UIView
 
 @end

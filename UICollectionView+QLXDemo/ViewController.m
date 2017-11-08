@@ -106,7 +106,7 @@
 -(NSMutableArray *)footerDataList{
     if (!_footerDataList) {
         _footerDataList = [NSMutableArray new];
-        [_footerDataList addObject:[ViewHeader new]];
+        [_footerDataList addObject:[ACollectionViewFooterData new]];
     }
     return _footerDataList;
 }
