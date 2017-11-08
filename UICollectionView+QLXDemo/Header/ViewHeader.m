@@ -1,21 +1,21 @@
 //
-//  TestCollectionViewCell.m
+//  ViewHeader.m
 //  UICollectionView+QLXDemo
 //
-//  Created by QLX on 2017/11/5.
+//  Created by QLX on 2017/11/8.
 //  Copyright © 2017年 QLX. All rights reserved.
 //
 
-#import "TestCollectionViewCell.h"
+#import "ViewHeader.h"
 
-@interface TestCollectionViewCell()
+@interface ViewHeader()
 
 @property(nonatomic , strong)  UILabel * titleLbl;
 @property(nonatomic , strong)  UILabel * subTitleLbl;
 
 @end
 
-@implementation TestCollectionViewCell
+@implementation ViewHeader
 
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -32,12 +32,12 @@
         [self.subTitleLbl addGestureRecognizer:tapGS];
         self.subTitleLbl.userInteractionEnabled = true;
         
-    
         
-//        static int i = 0;
-//        i++;
-//        NSLog(@"test:%d",i);
-//        self.frame = CGRectMake(0, 0, 375, 200);
+        
+        //        static int i = 0;
+        //        i++;
+        //        NSLog(@"test:%d",i);
+        //        self.frame = CGRectMake(0, 0, 375, 200);
     }
     return self;
 }
@@ -46,7 +46,7 @@
 
 - (void)onDidSelected{
     
-     self.subTitleLbl.text = @"SDK解放路大煞风景说多累快放假老实点受打击了开发但是就离开手机端发说多累会计法说多累会计法说的放假了可适当方式豆腐";
+    self.subTitleLbl.text = @"SDK解放路大煞风景说多累快放假老实点受打击了开发但是就离开手机端发说多累会计法说多累会计法说的放假了可适当方式豆腐";
     [self qlx_viewSizeChanged];
     [self.qlx_collectionView reloadData];
 }
@@ -55,13 +55,23 @@
     self.subTitleLbl.text = title;
 }
 
-//- (void)prepareForReuse{
-//    [super prepareForReuse];
-//}
+- (void)prepareForReuse{
+    [super prepareForReuse];
+}
 
 - (void)qlx_prepareForReuse{
     [super qlx_prepareForReuse];
 }
+
+- (void)qlx_willDisplayCell{
+    
+}
+
+- (void)qlx_didEndDisplayingCell{
+    
+}
+
+
 
 
 
@@ -85,13 +95,11 @@
 
 -(void)qlx_didSelectCell{
     [super qlx_didSelectCell];
-//    NSLog(@"%@",self.qlx_indexPath);
-//    [super qlx_didSelectCell];
+    //    NSLog(@"%@",self.qlx_indexPath);
+    //    [super qlx_didSelectCell];
 }
 
-- (void)qlx_willDisplayCell{
-    [super qlx_willDisplayCell];
-}
+
 
 
 //-(CGSize)qlx_viewSize{

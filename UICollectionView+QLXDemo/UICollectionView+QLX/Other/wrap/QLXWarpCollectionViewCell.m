@@ -96,6 +96,12 @@
     [rootView qlx_willDisplayCell];
 }
 
+- (void)qlx_didEndDisplayingCell{
+    [super qlx_didEndDisplayingCell];
+    UIView * rootView = [self getRootView];
+    [rootView qlx_didEndDisplayingCell];
+}
+
 - (BOOL)qlx_shouldSelectCell{
 
     UIView * rootView = [self getRootView];

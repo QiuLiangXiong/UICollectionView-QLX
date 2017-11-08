@@ -39,6 +39,10 @@
     
 }
 
+- (void)qlx_didEndDisplayingCell{
+    
+}
+
 - (BOOL)qlx_shouldSelectCell{
     return true;
 }

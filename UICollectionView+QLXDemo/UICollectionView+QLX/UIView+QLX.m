@@ -67,8 +67,12 @@
         return [super qlx_viewWidth];
     }
     if ([self isVerticalLayout]) {
-        UIEdgeInsets insets = [self _seciontInset];
-        return self.qlx_collectionView.frame.size.width - insets.left - insets.right;
+        if (self.qlx_indexPath.row == NSNotFound) {
+            return self.qlx_collectionView.frame.size.width;
+        }else {
+            UIEdgeInsets insets = [self _seciontInset];
+            return self.qlx_collectionView.frame.size.width - insets.left - insets.right;
+        }
     }
     return 0;
 }
@@ -78,8 +82,13 @@
         return [super qlx_viewHeight];
     }
     if (![self isVerticalLayout]) {
-        UIEdgeInsets insets = [self _seciontInset];
-        return self.qlx_collectionView.frame.size.height - insets.top - insets.bottom;
+        if (self.qlx_indexPath.row == NSNotFound) {
+            return self.qlx_collectionView.frame.size.height;
+        }else {
+            UIEdgeInsets insets = [self _seciontInset];
+            return self.qlx_collectionView.frame.size.height - insets.top - insets.bottom;
+        }
+        
     }
     return 0;
 }

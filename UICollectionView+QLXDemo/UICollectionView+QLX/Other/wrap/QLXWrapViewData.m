@@ -59,6 +59,18 @@
     self.rootView.qlx_viewHeight = qlx_viewHeight;
 }
 
+- (UIEdgeInsets)qlx_secionInset{
+    return self.rootView.qlx_secionInset;
+}
+
+- (CGFloat)qlx_minimumLineSpacing{
+    return self.qlx_minimumLineSpacing;
+}
+
+- (CGFloat)qlx_minimumInteritemSpacing{
+    return self.qlx_minimumInteritemSpacing;
+}
+
 
 
 

@@ -13,6 +13,7 @@
 #import "ACollectionViewFooterData.h"
 #import "ACollectionViewCell.h"
 #import "TestCollectionViewCell.h"
+#import "ViewHeader.h"
 
 
 @interface ViewController ()<QLXCollectionViewDataSource,UICollectionViewDelegate>
@@ -91,7 +92,12 @@
 -(NSMutableArray *)headerDataList{
     if (!_headerDataList) {
         _headerDataList = [NSMutableArray new];
-        [_headerDataList addObject:[ACollectionViewHeaderData new]];
+        ViewHeader * view = [ViewHeader new];
+        view.qlx_minimumLineSpacing = 20;
+        [view setTitle:@"我是头部"];
+        view.qlx_secionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        
+        [_headerDataList addObject:view];
     }
     return _headerDataList;
 }
@@ -99,7 +105,7 @@
 -(NSMutableArray *)footerDataList{
     if (!_footerDataList) {
         _footerDataList = [NSMutableArray new];
-        [_footerDataList addObject:[ACollectionViewFooterData new]];
+        [_footerDataList addObject:[ViewHeader new]];
     }
     return _footerDataList;
 }

@@ -122,7 +122,7 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
         
         if (headerData.qlx_viewWidth == 0 || headerData.qlx_viewHeight == 0) {
             UICollectionReusableView * cacheHeader = [self getCacheHeaderWithReuseIdentifierClass:[headerData qlx_reuseIdentifierClass]];
-            [cacheHeader qlx_reuseWithData:headerData indexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+            [cacheHeader qlx_reuseWithData:headerData indexPath:[NSIndexPath indexPathForRow:NSNotFound inSection:section]];
             CGSize size = [cacheHeader qlx_viewSize];
             headerData.qlx_viewWidth = size.width;
             headerData.qlx_viewHeight = size.height;
@@ -146,7 +146,7 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
             
             if (footerData.qlx_viewWidth == 0 || footerData.qlx_viewHeight == 0) {
                 UICollectionReusableView * cacheFooter = [self getCacheFooterWithReuseIdentifierClass:[footerData qlx_reuseIdentifierClass]];
-                [cacheFooter qlx_reuseWithData:footerData indexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+                [cacheFooter qlx_reuseWithData:footerData indexPath:[NSIndexPath indexPathForRow:NSNotFound inSection:section]];
                 CGSize size = [cacheFooter qlx_viewSize];
                 footerData.qlx_viewWidth = size.width;
                 footerData.qlx_viewHeight = size.height;
