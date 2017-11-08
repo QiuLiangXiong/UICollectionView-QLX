@@ -8,6 +8,9 @@
 
 #import "QLXWarpCollectionReusableView.h"
 #import "QLXWrapViewData.h"
+#import "NSObject+View.h"
+#import "UIView+QLX.h"
+#import "UIView+QLX_CellDelegate.h"
 #import "QMacros.h"
 
 @implementation QLXWarpCollectionReusableView
@@ -123,7 +126,7 @@
 #pragma mark - private
 
 - (UIView *)getRootView{
-    return (UIView *)self.contentView.subviews.firstObject;
+    return (UIView *)self.contentView.subviews.lastObject;
 }
 
 - (UIView *)contentView{

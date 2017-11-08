@@ -8,6 +8,7 @@
 
 #import "ACollectionViewCell.h"
 #import "ACollectionViewData.h"
+#import "UICollectionView+QLX.h"
 
 @interface ACollectionViewCell()
 
@@ -82,10 +83,12 @@
             make.bottom.equalTo(self.contentView).offset(-20);
             make.left.greaterThanOrEqualTo(self.titleLbl.mas_right).offset(20);
         }];
-        
-        
     }
     return _subTitleLbl;
+}
+
+- (UIView *)contentView{
+    return self;
 }
 
 @end

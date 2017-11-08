@@ -27,6 +27,8 @@
 		2D4270F51FAEED7700BC1969 /* QLXWarpCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4270F41FAEED7700BC1969 /* QLXWarpCollectionReusableView.m */; };
 		2D4270F81FAF070300BC1969 /* TestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4270F71FAF070300BC1969 /* TestCollectionViewCell.m */; };
 		2D60C69B1FB2D64E00F1523E /* ViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D60C69A1FB2D64E00F1523E /* ViewHeader.m */; };
+		2D60C69E1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D60C69D1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.m */; };
+		2D60C6A11FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D60C6A01FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m */; };
 		2DC141F21D7E7F7F008CFC59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC141F11D7E7F7F008CFC59 /* main.m */; };
 		2DC141F51D7E7F7F008CFC59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC141F41D7E7F7F008CFC59 /* AppDelegate.m */; };
 		2DC141F81D7E7F7F008CFC59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC141F71D7E7F7F008CFC59 /* ViewController.m */; };
@@ -107,6 +109,10 @@
 		2D4270F71FAF070300BC1969 /* TestCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewCell.m; sourceTree = "<group>"; };
 		2D60C6991FB2D64E00F1523E /* ViewHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewHeader.h; sourceTree = "<group>"; };
 		2D60C69A1FB2D64E00F1523E /* ViewHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewHeader.m; sourceTree = "<group>"; };
+		2D60C69C1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLXWrapReuseCollectionViewCell.h; sourceTree = "<group>"; };
+		2D60C69D1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLXWrapReuseCollectionViewCell.m; sourceTree = "<group>"; };
+		2D60C69F1FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLXWrapReuseCollectionReusableView.h; sourceTree = "<group>"; };
+		2D60C6A01FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLXWrapReuseCollectionReusableView.m; sourceTree = "<group>"; };
 		2DC141ED1D7E7F7F008CFC59 /* UICollectionView+QLXDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UICollectionView+QLXDemo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC141F11D7E7F7F008CFC59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2DC141F31D7E7F7F008CFC59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -263,6 +269,10 @@
 				2D4270F01FAEE14100BC1969 /* QLXWrapViewData.m */,
 				2D4270F31FAEED7700BC1969 /* QLXWarpCollectionReusableView.h */,
 				2D4270F41FAEED7700BC1969 /* QLXWarpCollectionReusableView.m */,
+				2D60C69C1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.h */,
+				2D60C69D1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.m */,
+				2D60C69F1FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.h */,
+				2D60C6A01FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m */,
 			);
 			path = wrap;
 			sourceTree = "<group>";
@@ -514,6 +524,7 @@
 				2D4270F11FAEE14100BC1969 /* QLXWrapViewData.m in Sources */,
 				2D1F6CC91D82A11600ED4194 /* UICollectionViewDataSourceDelegator.m in Sources */,
 				2D4270EE1FAEE04100BC1969 /* QLXWarpCollectionViewCell.m in Sources */,
+				2D60C69E1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.m in Sources */,
 				2DDC18511D81B58500C589C1 /* View+MASAdditions.m in Sources */,
 				2DC141F81D7E7F7F008CFC59 /* ViewController.m in Sources */,
 				2D2C6C7B1D810BC600DE7B55 /* ACollectionViewCell.m in Sources */,
@@ -524,6 +535,7 @@
 				2D60C69B1FB2D64E00F1523E /* ViewHeader.m in Sources */,
 				2DC141F51D7E7F7F008CFC59 /* AppDelegate.m in Sources */,
 				2DDC18521D81B58500C589C1 /* ViewController+MASAdditions.m in Sources */,
+				2D60C6A11FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m in Sources */,
 				2DDC184E1D81B58500C589C1 /* MASViewConstraint.m in Sources */,
 				2DDC184B1D81B58500C589C1 /* MASConstraintMaker.m in Sources */,
 				2DC141F21D7E7F7F008CFC59 /* main.m in Sources */,

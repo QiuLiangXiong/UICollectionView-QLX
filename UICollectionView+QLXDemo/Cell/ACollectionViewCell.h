@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ACollectionViewCell : UICollectionViewCell
+@interface ACollectionViewCell : UIView
 
 @end

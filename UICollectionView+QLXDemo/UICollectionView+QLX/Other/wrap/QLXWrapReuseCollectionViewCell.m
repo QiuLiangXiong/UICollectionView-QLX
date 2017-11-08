@@ -1,70 +1,29 @@
 //
-//  QLXWarpCollectionViewCell.m
+//  QLXWrapReuseCollectionViewCell.m
 //  UICollectionView+QLXDemo
 //
-//  Created by QLX on 2017/11/5.
+//  Created by QLX on 2017/11/8.
 //  Copyright © 2017年 QLX. All rights reserved.
 //
 
-#import "QLXWarpCollectionViewCell.h"
-#import "QMacros.h"
-#import "NSObject+View.h"
+#import "QLXWrapReuseCollectionViewCell.h"
 #import "UIView+QLX.h"
+#import "NSObject+View.h"
 #import "UIView+QLX_CellDelegate.h"
-#import "QLXWrapViewData.h"
 
-
-@implementation QLXWarpCollectionViewCell
-
-#pragma mark - overriding
-
-
+@implementation QLXWrapReuseCollectionViewCell
 
 - (void)qlx_reuseWithData:(NSObject *)data indexPath:(NSIndexPath *)indexPath{
     [super qlx_reuseWithData:data indexPath:indexPath];
-    QLXAssert([data isKindOfClass:[QLXWrapViewData class]], @"data must be QLXWrapViewData ");
-    QLXWrapViewData * wrapData = (QLXWrapViewData *)data;
-
-    UIView * rootView = [self getRootView];
-    if (rootView != wrapData.rootView) {
-        [rootView removeFromSuperview];
-        [wrapData.rootView removeFromSuperview];
-        rootView = wrapData.rootView;
-        for (NSLayoutConstraint * c in [self.contentView constraints]) {
-            [self.contentView removeConstraint:c];
-        }
-        [self.contentView addSubview:rootView];
-        rootView.frame = CGRectMake(0, 0, wrapData.qlx_viewWidth, wrapData.qlx_viewHeight);
-        rootView.translatesAutoresizingMaskIntoConstraints = true;
-    }
-    rootView.qlx_collectionView = self.qlx_collectionView;
-    [rootView qlx_reuseWithData:[rootView qlx_data] indexPath:indexPath];
-    rootView.hidden = false;
+    UIView * view = [self addRootViewIfNeedWithViewClass:[data qlx_reuseIdentifierClass]];
+    view.qlx_collectionView = self.qlx_collectionView;
+    [view qlx_reuseWithData:data indexPath:indexPath];
 }
 
 - (CGSize)qlx_viewSize{
     UIView * rootView = [self getRootView];
     return [rootView qlx_viewSize];
 }
-
-
-/*
- *  重定向触摸所在视图，解决嵌套cell带来的UICollectionView点击cell未响应问题
- */
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-    UIView * view = [super hitTest:point withEvent:event];
-    UIView * rootView = [self getRootView];
-    if ([rootView isKindOfClass:[UICollectionViewCell class]]) {
-        UICollectionViewCell * cell = (UICollectionViewCell *)rootView;
-        if (view == cell || view == cell.contentView) {
-            if (rootView.gestureRecognizers.count == 0 && cell.contentView.gestureRecognizers.count <= 1) {
-               return self;
-            }
-        }
-    }
-    return view;
-}
-
 
 
 - (void)prepareForReuse{
@@ -76,7 +35,6 @@
     }else {
         [rootView qlx_prepareForReuse];
     }
-    rootView.hidden = true;
 }
 
 
@@ -105,7 +63,7 @@
 }
 
 - (BOOL)qlx_shouldSelectCell{
-
+    
     UIView * rootView = [self getRootView];
     return [rootView qlx_shouldSelectCell];
 }
@@ -132,10 +90,48 @@
     [rootView qlx_didUnhighlightCell];
 }
 
+
+
+
+
+
 #pragma mark - private
+
+
+- (UIView *)addRootViewIfNeedWithViewClass:(Class) viewClass{
+    if (viewClass) {
+       UIView * lastObject = self.contentView.subviews.lastObject;
+        if (![lastObject isKindOfClass:viewClass]) {
+            UIView * view = [[viewClass alloc] init];
+            if (view) {
+                for (UIView * view in self.contentView.subviews) {
+                    [view removeFromSuperview];
+                }
+                [self.contentView addSubview:view];
+                [self addEdgeZeroConstraintWithView:view];
+            }
+        }
+    }
+    return [self getRootView];
+}
 
 - (UIView *)getRootView{
     return (UIView *)self.contentView.subviews.lastObject;
 }
+
+- (void)addEdgeZeroConstraintWithView:(UIView *)view{
+    view.translatesAutoresizingMaskIntoConstraints = NO;
+    UIView * superView = view.superview;
+    if (superView) {
+        [superView addConstraints:@[
+           [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0],
+           [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0],
+           [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0],
+           [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0],
+           ]
+         ];
+    }
+}
+
 
 @end

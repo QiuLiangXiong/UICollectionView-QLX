@@ -14,6 +14,7 @@
 #import <objc/runtime.h>
 #import "UICollectionViewDataSourceDelegator+CollectionViewDelegator.h"
 #import "QLXWrapViewData.h"
+#import "QLXWrapReuseCollectionViewCell.h"
 
 
 static NSString * const DefaultCellIdentifier = @"UICollectionViewCell";
@@ -243,7 +244,12 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
 
 #pragma mark - private
 
-
+- (Class)getRegisterClassWithIdentifierClass:(Class)identifierClass{
+    if ([identifierClass isSubclassOfClass:[UICollectionViewCell class]]) {
+        return identifierClass;
+    }
+    return [QLXWrapReuseCollectionViewCell class];;
+}
 
 - (UICollectionViewCell *)getCacheCellWithReuseIdentifierClass:(Class)identifierClass{
     if (!identifierClass) {
@@ -252,10 +258,11 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
     NSString * identifier = NSStringFromClass(identifierClass);
     UICollectionViewCell * cacheCell = [self.cacheCellDic objectForKey:identifier];
     if (!cacheCell || ![cacheCell isKindOfClass:[UICollectionViewCell class]]) {
-        cacheCell = [[identifierClass alloc] init];
+        Class registerClass = [self getRegisterClassWithIdentifierClass:identifierClass];
+        cacheCell = [[registerClass alloc] init];
         if ([cacheCell isKindOfClass:[UICollectionViewCell class]]) {
             cacheCell.qlx_collectionView = self.collectionView;
-            [self registerCellClass:identifierClass];
+            [self registerCellClass:registerClass indentifier:identifier];
             [self.cacheCellDic setObject:cacheCell forKey:identifier];
         }else {
             QLXAssert(false, @"identifier is not a UICollectionViewCell subClassName");
@@ -269,9 +276,9 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
         NSString * identifier = NSStringFromClass(identifierClass);
         UICollectionViewCell * cacheCell = [self.cacheCellDic objectForKey:identifier];
         if (!cacheCell) {
-            Class cellClass = identifierClass;
+            Class cellClass = [self getRegisterClassWithIdentifierClass:identifierClass];
             if (cellClass) {
-                [self registerCellClass:cellClass];
+                [self registerCellClass:cellClass indentifier:identifier];
                 [self.cacheCellDic setObject:cellClass forKey:identifier];
             }else {
                 QLXAssert(cellClass, @"identifier is not a className");
@@ -360,20 +367,36 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
     }
 }
 
-- (void)registerCellClass:(Class)cellClass {
-    QAssert(cellClass);
-    [self.collectionView registerClass:cellClass forCellWithReuseIdentifier:NSStringFromClass(cellClass)];
+- (void)registerCellClass:(Class)cellClass{
+    [self registerCellClass:cellClass indentifier:NSStringFromClass(cellClass)];
+}
+
+- (void)registerCellClass:(Class)cellClass indentifier:(NSString *)indentifier{
+    QAssert(cellClass && indentifier);
+    [self.collectionView registerClass:cellClass forCellWithReuseIdentifier:indentifier];
 }
 
 - (void)registerHeaderClass:(Class) headerClass{
     QAssert(headerClass);
-    [self.collectionView registerClass:headerClass forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(headerClass)];
+    [self registerHeaderClass:headerClass indentifier:NSStringFromClass(headerClass)];
 }
+
+- (void)registerHeaderClass:(Class) headerClass indentifier:(NSString *)indentifier{
+      [self.collectionView registerClass:headerClass forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:indentifier];
+}
+
 
 - (void)registerFooterClass:(Class) footerClass{
     QAssert(footerClass);
-    [self.collectionView registerClass:footerClass forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(footerClass)];
+    [self registerFooterClass:footerClass indentifier:NSStringFromClass(footerClass)];
 }
+
+- (void)registerFooterClass:(Class) footerClass indentifier:(NSString *)indentifier{
+     QAssert(footerClass && indentifier);
+    [self.collectionView registerClass:footerClass forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:indentifier];
+}
+
+
 
 
 #pragma mark - private

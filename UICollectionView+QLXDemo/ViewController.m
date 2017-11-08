@@ -14,6 +14,7 @@
 #import "ACollectionViewCell.h"
 #import "TestCollectionViewCell.h"
 #import "ViewHeader.h"
+#import "UICollectionView+QLX.h"
 
 
 @interface ViewController ()<QLXCollectionViewDataSource,UICollectionViewDelegate>

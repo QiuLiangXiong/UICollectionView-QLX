@@ -7,6 +7,7 @@
 //
 
 #import "TestCollectionViewCell.h"
+#import "UICollectionView+QLX.h"
 
 @interface TestCollectionViewCell()
 
@@ -76,12 +77,12 @@
  *  点击
  */
 
-- (UIView *)contentView{
-    if ([self isKindOfClass:[UICollectionViewCell class]]) {
-        return [super performSelector:@selector(contentView) withObject:nil];
-    }
-    return self;
-}
+//- (UIView *)contentView{
+//    if ([self isKindOfClass:[UICollectionViewCell class]]) {
+//        return [super performSelector:@selector(contentView) withObject:nil];
+//    }
+//    return self;
+//}
 
 -(void)qlx_didSelectCell{
     [super qlx_didSelectCell];
@@ -92,6 +93,7 @@
 - (void)qlx_willDisplayCell{
     [super qlx_willDisplayCell];
 }
+
 
 
 //-(CGSize)qlx_viewSize{

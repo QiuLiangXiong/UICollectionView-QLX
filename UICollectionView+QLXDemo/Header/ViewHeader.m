@@ -7,7 +7,7 @@
 //
 
 #import "ViewHeader.h"
-
+#import "UICollectionView+QLX.h"
 @interface ViewHeader()
 
 @property(nonatomic , strong)  UILabel * titleLbl;

@@ -9,6 +9,9 @@
 #import "QLXWrapViewData.h"
 #import "QLXWarpCollectionViewCell.h"
 #import "QLXWarpCollectionReusableView.h"
+#import "NSObject+View.h"
+#import "UIView+QLX.h"
+#import "UIView+QLX_CellDelegate.h"
 
 @implementation QLXWrapViewData
 
