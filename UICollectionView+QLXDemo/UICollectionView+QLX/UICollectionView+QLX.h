@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NSObject+View.h"
 #import "UIView+QLX.h"
-#import "UICollectionViewCell+QLX.h"
+#import "UIView+QLX_CellDelegate.h"
 
 @protocol QLXCollectionViewDataSource;
 

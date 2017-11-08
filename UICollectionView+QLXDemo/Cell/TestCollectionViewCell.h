@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TestCollectionViewCell : UICollectionViewCell
+@interface TestCollectionViewCell : UIView
 
 - (void)setTitle:(NSString *)title;
 

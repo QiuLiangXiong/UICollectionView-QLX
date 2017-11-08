@@ -43,11 +43,8 @@
     NSArray * attributes = [self qlx_layoutAttributesForElementsInRect:rect];
     if (attributes && self.collectionView.qlx_dataSource && [self.collectionView.qlx_dataSource respondsToSelector:@selector(qlx_decorationViewClassListWithCollectionView:)]) {
         NSMutableArray * atts = [NSMutableArray arrayWithArray:attributes];
-    
         [atts addObjectsFromArray:self.decroationViewAttsArray];
         return atts;
-        
-    
     }
     return attributes;
 }

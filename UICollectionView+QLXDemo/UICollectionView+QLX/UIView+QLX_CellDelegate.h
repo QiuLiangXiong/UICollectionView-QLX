@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UICollectionViewCell(QLX)
+@interface UIView(QLX_CellDelegate)
+
+#pragma mark - cell callback
+
+- (void)qlx_prepareForReuse;
 
 #pragma mark - UICollectionViewDelegate callback
 

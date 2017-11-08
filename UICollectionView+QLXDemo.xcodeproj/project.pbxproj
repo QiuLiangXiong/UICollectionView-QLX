@@ -13,7 +13,7 @@
 		2D1F6CCA1D82A11600ED4194 /* UICollectionViewFlowLayout+QLX.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F6CBF1D82A11600ED4194 /* UICollectionViewFlowLayout+QLX.m */; };
 		2D1F6CD91D82AC4800ED4194 /* NSObject+View.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F6CD81D82AC4800ED4194 /* NSObject+View.m */; };
 		2D1F6CDC1D82AC6000ED4194 /* UIView+QLX.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F6CDB1D82AC6000ED4194 /* UIView+QLX.m */; };
-		2D1F6CDF1D82AC6700ED4194 /* UICollectionViewCell+QLX.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F6CDE1D82AC6700ED4194 /* UICollectionViewCell+QLX.m */; };
+		2D1F6CDF1D82AC6700ED4194 /* UIView+QLX_CellDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F6CDE1D82AC6700ED4194 /* UIView+QLX_CellDelegate.m */; };
 		2D1F6CE21D82AC6E00ED4194 /* UICollectionView+QLX.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F6CE11D82AC6E00ED4194 /* UICollectionView+QLX.m */; };
 		2D2C6C7B1D810BC600DE7B55 /* ACollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2C6C7A1D810BC600DE7B55 /* ACollectionViewCell.m */; };
 		2D2C6C7E1D810BE900DE7B55 /* ACollectionViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2C6C7D1D810BE900DE7B55 /* ACollectionViewData.m */; };
@@ -77,8 +77,8 @@
 		2D1F6CD81D82AC4800ED4194 /* NSObject+View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+View.m"; sourceTree = "<group>"; };
 		2D1F6CDA1D82AC6000ED4194 /* UIView+QLX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QLX.h"; sourceTree = "<group>"; };
 		2D1F6CDB1D82AC6000ED4194 /* UIView+QLX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QLX.m"; sourceTree = "<group>"; };
-		2D1F6CDD1D82AC6700ED4194 /* UICollectionViewCell+QLX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+QLX.h"; sourceTree = "<group>"; };
-		2D1F6CDE1D82AC6700ED4194 /* UICollectionViewCell+QLX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+QLX.m"; sourceTree = "<group>"; };
+		2D1F6CDD1D82AC6700ED4194 /* UIView+QLX_CellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QLX_CellDelegate.h"; sourceTree = "<group>"; };
+		2D1F6CDE1D82AC6700ED4194 /* UIView+QLX_CellDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QLX_CellDelegate.m"; sourceTree = "<group>"; };
 		2D1F6CE01D82AC6E00ED4194 /* UICollectionView+QLX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+QLX.h"; sourceTree = "<group>"; };
 		2D1F6CE11D82AC6E00ED4194 /* UICollectionView+QLX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+QLX.m"; sourceTree = "<group>"; };
 		2D2C6C791D810BC600DE7B55 /* ACollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACollectionViewCell.h; sourceTree = "<group>"; };
@@ -177,8 +177,8 @@
 			children = (
 				2D1F6CE01D82AC6E00ED4194 /* UICollectionView+QLX.h */,
 				2D1F6CE11D82AC6E00ED4194 /* UICollectionView+QLX.m */,
-				2D1F6CDD1D82AC6700ED4194 /* UICollectionViewCell+QLX.h */,
-				2D1F6CDE1D82AC6700ED4194 /* UICollectionViewCell+QLX.m */,
+				2D1F6CDD1D82AC6700ED4194 /* UIView+QLX_CellDelegate.h */,
+				2D1F6CDE1D82AC6700ED4194 /* UIView+QLX_CellDelegate.m */,
 				2D1F6CDA1D82AC6000ED4194 /* UIView+QLX.h */,
 				2D1F6CDB1D82AC6000ED4194 /* UIView+QLX.m */,
 				2D1F6CD71D82AC4800ED4194 /* NSObject+View.h */,
@@ -495,7 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D2C6C821D8110AC00DE7B55 /* ADecroationView.m in Sources */,
-				2D1F6CDF1D82AC6700ED4194 /* UICollectionViewCell+QLX.m in Sources */,
+				2D1F6CDF1D82AC6700ED4194 /* UIView+QLX_CellDelegate.m in Sources */,
 				2D1F6CC81D82A11600ED4194 /* UICollectionViewDataSourceDelegator+CollectionViewDelegator.m in Sources */,
 				2D2C6C8A1D811EDA00DE7B55 /* ACollectionViewHeaderData.m in Sources */,
 				2DDC184A1D81B58500C589C1 /* MASConstraint.m in Sources */,

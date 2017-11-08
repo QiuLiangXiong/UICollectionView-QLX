@@ -29,7 +29,8 @@
         
         UIGestureRecognizer * tapGS = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDidSelected)];
         
-        [self addGestureRecognizer:tapGS];
+        [self.subTitleLbl addGestureRecognizer:tapGS];
+        self.subTitleLbl.userInteractionEnabled = true;
         
     
         
@@ -58,11 +59,16 @@
 //    [super prepareForReuse];
 //}
 
-//-(void)qlx_reuseWithData:(NSObject *)data indexPath:(NSIndexPath *)indexPath{
-//    [super qlx_reuseWithData:data indexPath:indexPath];
-//
-//
+//- (void)qlx_prepareForReuse{
+//    [super qlx_prepareForReuse];
 //}
+
+
+
+
+-(void)qlx_reuseWithData:(NSObject *)data indexPath:(NSIndexPath *)indexPath{
+    [super qlx_reuseWithData:data indexPath:indexPath];
+}
 
 
 
@@ -70,16 +76,29 @@
  *  点击
  */
 
+- (UIView *)contentView{
+    if ([self isKindOfClass:[UICollectionViewCell class]]) {
+        return [super performSelector:@selector(contentView) withObject:nil];
+    }
+    return self;
+}
+
 -(void)qlx_didSelectCell{
+    [super qlx_didSelectCell];
 //    NSLog(@"%@",self.qlx_indexPath);
 //    [super qlx_didSelectCell];
-    
+}
+
+- (void)qlx_willDisplayCell{
+    [super qlx_willDisplayCell];
 }
 
 
 //-(CGSize)qlx_viewSize{
 //    return CGSizeMake(self.collectionView.frame.size.width, 50);
 //}
+
+
 
 -(UILabel *)titleLbl{
     if (!_titleLbl) {

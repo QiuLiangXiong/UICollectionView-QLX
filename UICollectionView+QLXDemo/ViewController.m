@@ -39,10 +39,11 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self cv];
+    [self.cv reloadData];
     
-    [self performSelector:@selector(reloadData) withObject:nil afterDelay:2];
+//    [self performSelector:@selector(reloadData) withObject:nil afterDelay:2];
     
-    [self performSelector:@selector(reloadData) withObject:nil afterDelay:5];
+//    [self performSelector:@selector(reloadData) withObject:nil afterDelay:5];
     
     // Do any additional setup after loading the view, typically from a nib.
 }
