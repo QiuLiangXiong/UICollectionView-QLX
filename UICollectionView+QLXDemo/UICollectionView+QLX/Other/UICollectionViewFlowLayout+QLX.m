@@ -10,6 +10,9 @@
 #import  <objc/runtime.h>
 #import "UICollectionView+QLX.h"
 #import "QMacros.h"
+#import "UICollectionView+QLX_Sync.h"
+#import "QLXSectionData.h"
+
 
 @interface UICollectionViewFlowLayout()
 
@@ -37,11 +40,15 @@
 - (void)qlx_prepareLayout{
     self.decroationViewAttsArray = nil;
     [self qlx_prepareLayout];
+    //备份
+    [self.collectionView qlx_copyDataSource];
+
 }
+
 
 - (NSArray<UICollectionViewLayoutAttributes *> *)qlx_layoutAttributesForElementsInRect:(CGRect)rect{
     NSArray * attributes = [self qlx_layoutAttributesForElementsInRect:rect];
-    if (attributes && self.collectionView.qlx_dataSource && [self.collectionView.qlx_dataSource respondsToSelector:@selector(qlx_decorationViewClassListWithCollectionView:)]) {
+    if (attributes && self.collectionView.qlx_dataSource && [self.collectionView.qlx_dataSource respondsToSelector:@selector(qlx_sectionDataListWithCollectionView:)]) {
         NSMutableArray * atts = [NSMutableArray arrayWithArray:attributes];
         [atts addObjectsFromArray:self.decroationViewAttsArray];
         return atts;
@@ -166,14 +173,16 @@
 }
 
 - (Class)getDecorationViewClassWithSecion:(NSInteger) section{
-    if ([self.collectionView.qlx_dataSource respondsToSelector:@selector(qlx_decorationViewClassListWithCollectionView:)]) {
-        NSArray * classes = [self.collectionView.qlx_dataSource qlx_decorationViewClassListWithCollectionView:self.collectionView];
-        if (section < classes.count ) {
-            return [classes objectAtIndex:section];
+    if ([self.collectionView.qlx_dataSource respondsToSelector:@selector(qlx_sectionDataListWithCollectionView:)]) {
+        NSArray * sectionDataList = [self.collectionView.qlx_dataSource qlx_sectionDataListWithCollectionView:self.collectionView];
+        if (section < sectionDataList.count ) {
+            QLXSectionData * sectionData = sectionDataList[section];
+            if ([sectionData isKindOfClass:[QLXSectionData class]]) {
+                return sectionData.decorationData;
+            }
         }
     }
-    
-    return nil;
+    return [UICollectionReusableView class];
 }
 
 

@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "UIKit/UIKit.h"
+#import "QLXDiffUtil.h"
 
 
-@interface NSObject(View)
+@interface NSObject(View)<QLXDiffable>
 
 /**
  *  数据映射绑定视图的类名  不能为空

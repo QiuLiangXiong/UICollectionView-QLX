@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QLXSectionData.h"
 #import "NSObject+View.h"
 #import "UIView+QLX.h"
 #import "UIView+QLX_CellDelegate.h"
+#import "NSMutableArray+QLX.h"
+
 
 @protocol QLXCollectionViewDataSource;
 
@@ -30,14 +33,6 @@
 
 @required
 
-- (NSArray *)qlx_cellDataListWithCollectionView:(UICollectionView *) collectionView;
-
-@optional
-
-- (NSArray *)qlx_headerDataListWithCollectionView:(UICollectionView *) collectionView;
-
-- (NSArray *)qlx_footerDataListWithCollectionView:(UICollectionView *) collectionView;
-
-- (NSArray<Class> *)qlx_decorationViewClassListWithCollectionView:(UICollectionView *)collectionView;
+- (NSArray *)qlx_sectionDataListWithCollectionView:(UICollectionView *) collectionView;
 
 @end

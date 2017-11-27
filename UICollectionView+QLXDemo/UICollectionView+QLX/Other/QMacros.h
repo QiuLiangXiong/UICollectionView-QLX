@@ -11,7 +11,7 @@
 #ifdef DEBUG
 #define QLXAssert(condition , description)  if(!(condition)){ NSLog(@"%@",description); assert(0);}
 #else
-#define QLXAssert(condition , description)
+#define QLXAssert(condition , description)  
 #endif
 
 #ifdef DEBUG

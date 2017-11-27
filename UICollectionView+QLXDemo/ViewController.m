@@ -29,6 +29,11 @@
 
 @property(nonatomic , strong)  NSMutableArray * decroationViewClassList;
 
+@property(nonatomic , strong) NSArray * t;
+
+@property(nonatomic , strong) NSArray<QLXSectionData *> * dataList;
+
+
 @end
 
 @implementation ViewController
@@ -43,6 +48,30 @@
     [self cv];
     [self.cv reloadData];
     
+
+
+    
+    QLXSectionData * sectionData = [QLXSectionData new];
+    sectionData.cellDataList = self.cellDataList;
+    sectionData.headerData = self.headerDataList.firstObject;
+    sectionData.decorationData = self.decroationViewClassList.firstObject;
+    sectionData.footerData = self.footerDataList.firstObject;
+    self.dataList = @[sectionData];
+//
+   
+    
+   
+    
+ 
+    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, 50, 50)];
+    [button setTitle:@"添加" forState:0];
+    [button setBackgroundColor:[UIColor blueColor]];
+    [self.view addSubview:button];
+    [button addTarget:self action:@selector(addTest) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    
+    
+    
 //    [self performSelector:@selector(reloadData) withObject:nil afterDelay:2];
     
 //    [self performSelector:@selector(reloadData) withObject:nil afterDelay:5];
@@ -51,23 +80,28 @@
 }
 
 
+- (void)addTest{
+    QLXSectionData * sectionData = self.dataList.firstObject;
+    NSMutableArray * cellDataList = sectionData.cellDataList;
+    if ([cellDataList isKindOfClass:[NSMutableArray class]]) {
+        
+        
+        ACollectionViewData * data = [ACollectionViewData new];
+                data.color = [UIColor redColor];
+                data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
+        [cellDataList qlx_insertObject:data atIndex:0];
+        
+       
+        
+    }
+}
+
 
 #pragma mark - QLXCollectionViewDataSource
 
--(NSArray *)qlx_headerDataListWithCollectionView:(UICollectionView *)collectionView{
-    return self.headerDataList;
-}
 
--(NSArray *)qlx_cellDataListWithCollectionView:(UICollectionView *)collectionView{
-    return self.cellDataList;
-}
-
--(NSArray *)qlx_footerDataListWithCollectionView:(UICollectionView *)collectionView{
-    return self.footerDataList;
-}
-
--(NSArray<Class> *)qlx_decorationViewClassListWithCollectionView:(UICollectionView *)collectionView{
-    return self.decroationViewClassList;
+- (NSArray *)qlx_sectionDataListWithCollectionView:(UICollectionView *)collectionView{
+    return self.dataList;
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -123,469 +157,12 @@
         [_cellDataList addObject:cell];
         
 
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"2.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"3.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"4.SDK福建SD放假电视剧发了肯定就是发受打击了开发"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"5.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
+     
         
 
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"6.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"7.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"8.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"9.SDK福建SD放假电视剧发了肯定就是发受打击了开发"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"10.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"11.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"12.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"13.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"14.SDK福建SD放假电视剧发了肯定就是发受打击了开发"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"15.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"16.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"11.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"12.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"13.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"14.SDK福建SD放假电视剧发了肯定就是发受打击了开发"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"15.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"16.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"11.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"12.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"13.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"14.SDK福建SD放假电视剧发了肯定就是发受打击了开发"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"15.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"16.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"11.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"12.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"13.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"14.SDK福建SD放假电视剧发了肯定就是发受打击了开发"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"15.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"16.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"16.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"11.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"12.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"13.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"14.SDK福建SD放假电视剧发了肯定就是发受打击了开发"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"15.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"16.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"11.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"12.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"13.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"14.SDK福建SD放假电视剧发了肯定就是发受打击了开发"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"15.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"16.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"11.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"12.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"13.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"14.SDK福建SD放假电视剧发了肯定就是发受打击了开发"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"15.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"16.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"16.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"11.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"12.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"13.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"14.SDK福建SD放假电视剧发了肯定就是发受打击了开发"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"15.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"16.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"11.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"12.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"13.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"14.SDK福建SD放假电视剧发了肯定就是发受打击了开发"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"15.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"16.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"11.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"12.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"13.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"14.SDK福建SD放假电视剧发了肯定就是发受打击了开发"];
-        [_cellDataList addObject:cell];
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"15.四等分打飞机都市风流姐"];
-        [_cellDataList addObject:cell];
-        
-        
-        
-        cell = [TestCollectionViewCell new];
-        [cell setTitle:@"16.SDK福建省雕龙刻凤姐束带结发了色调分离说的放假了SD赋逻辑论SD发链接SD家乐福四等分借口了"];
-        [_cellDataList addObject:cell];
-        
-        
-        do {
-
-            data = [ACollectionViewData new];
-            data.color = [UIColor blueColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor grayColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor cyanColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor brownColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor yellowColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor grayColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor blueColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor redColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor blueColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor grayColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor cyanColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor brownColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor yellowColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor grayColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor blueColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor redColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            data = [ACollectionViewData new];
-            data.color = [UIColor blueColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor grayColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor cyanColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor brownColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor yellowColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor grayColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor blueColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor redColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor blueColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor grayColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor cyanColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor brownColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor yellowColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居";
-            [_cellDataList addObject:data];
-            
-            data = [ACollectionViewData new];
-            data.color = [UIColor grayColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [_cellDataList addObject:data];
-        } while (0);
+//        NSMutableArray * res = [NSMutableArray new];
+//        [res addObject:_cellDataList];
+//        _cellDataList = res;
         
 //
        

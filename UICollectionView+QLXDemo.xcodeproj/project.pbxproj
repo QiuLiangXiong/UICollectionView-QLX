@@ -29,6 +29,12 @@
 		2D60C69B1FB2D64E00F1523E /* ViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D60C69A1FB2D64E00F1523E /* ViewHeader.m */; };
 		2D60C69E1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D60C69D1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.m */; };
 		2D60C6A11FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D60C6A01FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m */; };
+		2D63EDFB1FCBD9FA0038B2F1 /* QLXDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63EDFA1FCBD9FA0038B2F1 /* QLXDataSource.m */; };
+		2D63EE011FCC0AB60038B2F1 /* QLXDiffUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63EE001FCC0AB60038B2F1 /* QLXDiffUtil.m */; };
+		2D63EE041FCC10870038B2F1 /* QLXCollectionViewUpdateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63EE031FCC10870038B2F1 /* QLXCollectionViewUpdateUtil.m */; };
+		2D63EE071FCC20B00038B2F1 /* QLXSectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63EE061FCC20B00038B2F1 /* QLXSectionData.m */; };
+		2DC0FBA31FBEFD4B00D161EA /* NSMutableArray+QLX.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0FBA21FBEFD4B00D161EA /* NSMutableArray+QLX.m */; };
+		2DC0FBA61FC2D0B500D161EA /* UICollectionView+QLX_Sync.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0FBA51FC2D0B500D161EA /* UICollectionView+QLX_Sync.m */; };
 		2DC141F21D7E7F7F008CFC59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC141F11D7E7F7F008CFC59 /* main.m */; };
 		2DC141F51D7E7F7F008CFC59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC141F41D7E7F7F008CFC59 /* AppDelegate.m */; };
 		2DC141F81D7E7F7F008CFC59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC141F71D7E7F7F008CFC59 /* ViewController.m */; };
@@ -113,6 +119,18 @@
 		2D60C69D1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLXWrapReuseCollectionViewCell.m; sourceTree = "<group>"; };
 		2D60C69F1FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLXWrapReuseCollectionReusableView.h; sourceTree = "<group>"; };
 		2D60C6A01FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLXWrapReuseCollectionReusableView.m; sourceTree = "<group>"; };
+		2D63EDF91FCBD9FA0038B2F1 /* QLXDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLXDataSource.h; sourceTree = "<group>"; };
+		2D63EDFA1FCBD9FA0038B2F1 /* QLXDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLXDataSource.m; sourceTree = "<group>"; };
+		2D63EDFF1FCC0AB60038B2F1 /* QLXDiffUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLXDiffUtil.h; sourceTree = "<group>"; };
+		2D63EE001FCC0AB60038B2F1 /* QLXDiffUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLXDiffUtil.m; sourceTree = "<group>"; };
+		2D63EE021FCC10870038B2F1 /* QLXCollectionViewUpdateUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLXCollectionViewUpdateUtil.h; sourceTree = "<group>"; };
+		2D63EE031FCC10870038B2F1 /* QLXCollectionViewUpdateUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLXCollectionViewUpdateUtil.m; sourceTree = "<group>"; };
+		2D63EE051FCC20B00038B2F1 /* QLXSectionData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLXSectionData.h; sourceTree = "<group>"; };
+		2D63EE061FCC20B00038B2F1 /* QLXSectionData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLXSectionData.m; sourceTree = "<group>"; };
+		2DC0FBA11FBEFD4B00D161EA /* NSMutableArray+QLX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+QLX.h"; sourceTree = "<group>"; };
+		2DC0FBA21FBEFD4B00D161EA /* NSMutableArray+QLX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QLX.m"; sourceTree = "<group>"; };
+		2DC0FBA41FC2D0B500D161EA /* UICollectionView+QLX_Sync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+QLX_Sync.h"; sourceTree = "<group>"; };
+		2DC0FBA51FC2D0B500D161EA /* UICollectionView+QLX_Sync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+QLX_Sync.m"; sourceTree = "<group>"; };
 		2DC141ED1D7E7F7F008CFC59 /* UICollectionView+QLXDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UICollectionView+QLXDemo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC141F11D7E7F7F008CFC59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2DC141F31D7E7F7F008CFC59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -184,6 +202,8 @@
 		2D1F6CB31D82A11600ED4194 /* UICollectionView+QLX */ = {
 			isa = PBXGroup;
 			children = (
+				2D63EE051FCC20B00038B2F1 /* QLXSectionData.h */,
+				2D63EE061FCC20B00038B2F1 /* QLXSectionData.m */,
 				2D1F6CE01D82AC6E00ED4194 /* UICollectionView+QLX.h */,
 				2D1F6CE11D82AC6E00ED4194 /* UICollectionView+QLX.m */,
 				2D1F6CDD1D82AC6700ED4194 /* UIView+QLX_CellDelegate.h */,
@@ -192,6 +212,8 @@
 				2D1F6CDB1D82AC6000ED4194 /* UIView+QLX.m */,
 				2D1F6CD71D82AC4800ED4194 /* NSObject+View.h */,
 				2D1F6CD81D82AC4800ED4194 /* NSObject+View.m */,
+				2DC0FBA11FBEFD4B00D161EA /* NSMutableArray+QLX.h */,
+				2DC0FBA21FBEFD4B00D161EA /* NSMutableArray+QLX.m */,
 				2D1F6CB61D82A11600ED4194 /* Other */,
 			);
 			path = "UICollectionView+QLX";
@@ -200,6 +222,7 @@
 		2D1F6CB61D82A11600ED4194 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				2D63EDF81FCBB4ED0038B2F1 /* sync */,
 				2D4270F21FAEE1A300BC1969 /* wrap */,
 				2D1F6CB71D82A11600ED4194 /* QLXWeakObject.h */,
 				2D1F6CB81D82A11600ED4194 /* QLXWeakObject.m */,
@@ -275,6 +298,21 @@
 				2D60C6A01FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m */,
 			);
 			path = wrap;
+			sourceTree = "<group>";
+		};
+		2D63EDF81FCBB4ED0038B2F1 /* sync */ = {
+			isa = PBXGroup;
+			children = (
+				2DC0FBA41FC2D0B500D161EA /* UICollectionView+QLX_Sync.h */,
+				2DC0FBA51FC2D0B500D161EA /* UICollectionView+QLX_Sync.m */,
+				2D63EDF91FCBD9FA0038B2F1 /* QLXDataSource.h */,
+				2D63EDFA1FCBD9FA0038B2F1 /* QLXDataSource.m */,
+				2D63EDFF1FCC0AB60038B2F1 /* QLXDiffUtil.h */,
+				2D63EE001FCC0AB60038B2F1 /* QLXDiffUtil.m */,
+				2D63EE021FCC10870038B2F1 /* QLXCollectionViewUpdateUtil.h */,
+				2D63EE031FCC10870038B2F1 /* QLXCollectionViewUpdateUtil.m */,
+			);
+			path = sync;
 			sourceTree = "<group>";
 		};
 		2DC141E41D7E7F7F008CFC59 = {
@@ -510,24 +548,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D63EDFB1FCBD9FA0038B2F1 /* QLXDataSource.m in Sources */,
 				2D2C6C821D8110AC00DE7B55 /* ADecroationView.m in Sources */,
 				2D1F6CDF1D82AC6700ED4194 /* UIView+QLX_CellDelegate.m in Sources */,
 				2D1F6CC81D82A11600ED4194 /* UICollectionViewDataSourceDelegator+CollectionViewDelegator.m in Sources */,
 				2D2C6C8A1D811EDA00DE7B55 /* ACollectionViewHeaderData.m in Sources */,
 				2DDC184A1D81B58500C589C1 /* MASConstraint.m in Sources */,
+				2DC0FBA31FBEFD4B00D161EA /* NSMutableArray+QLX.m in Sources */,
 				2D4270F51FAEED7700BC1969 /* QLXWarpCollectionReusableView.m in Sources */,
 				2DDC184D1D81B58500C589C1 /* MASViewAttribute.m in Sources */,
 				2D1F6CE21D82AC6E00ED4194 /* UICollectionView+QLX.m in Sources */,
 				2D1F6CCA1D82A11600ED4194 /* UICollectionViewFlowLayout+QLX.m in Sources */,
+				2D63EE011FCC0AB60038B2F1 /* QLXDiffUtil.m in Sources */,
 				2D2C6C8E1D81206300DE7B55 /* ACollectionViewFooter.m in Sources */,
 				2DDC18491D81B58500C589C1 /* MASCompositeConstraint.m in Sources */,
 				2D4270F11FAEE14100BC1969 /* QLXWrapViewData.m in Sources */,
 				2D1F6CC91D82A11600ED4194 /* UICollectionViewDataSourceDelegator.m in Sources */,
 				2D4270EE1FAEE04100BC1969 /* QLXWarpCollectionViewCell.m in Sources */,
 				2D60C69E1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.m in Sources */,
+				2D63EE071FCC20B00038B2F1 /* QLXSectionData.m in Sources */,
 				2DDC18511D81B58500C589C1 /* View+MASAdditions.m in Sources */,
 				2DC141F81D7E7F7F008CFC59 /* ViewController.m in Sources */,
 				2D2C6C7B1D810BC600DE7B55 /* ACollectionViewCell.m in Sources */,
+				2D63EE041FCC10870038B2F1 /* QLXCollectionViewUpdateUtil.m in Sources */,
 				2D1F6CD91D82AC4800ED4194 /* NSObject+View.m in Sources */,
 				2DDC184F1D81B58500C589C1 /* NSArray+MASAdditions.m in Sources */,
 				2DDC18501D81B58500C589C1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
@@ -541,6 +584,7 @@
 				2DC141F21D7E7F7F008CFC59 /* main.m in Sources */,
 				2D4270F81FAF070300BC1969 /* TestCollectionViewCell.m in Sources */,
 				2D1F6CC71D82A11600ED4194 /* QLXWeakObject.m in Sources */,
+				2DC0FBA61FC2D0B500D161EA /* UICollectionView+QLX_Sync.m in Sources */,
 				2DDC184C1D81B58500C589C1 /* MASLayoutConstraint.m in Sources */,
 				2D1F6CDC1D82AC6000ED4194 /* UIView+QLX.m in Sources */,
 				2D2C6C861D81183400DE7B55 /* ACollectionViewHeader.m in Sources */,

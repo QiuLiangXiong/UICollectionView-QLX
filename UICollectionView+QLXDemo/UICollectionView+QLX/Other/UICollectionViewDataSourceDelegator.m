@@ -16,6 +16,7 @@
 #import "QLXWrapViewData.h"
 #import "QLXWrapReuseCollectionViewCell.h"
 #import "QLXWrapReuseCollectionReusableView.h"
+#import "QLXSectionData.h"
 
 
 static NSString * const DefaultCellIdentifier = @"UICollectionViewCell";
@@ -24,6 +25,7 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
 
 @interface UICollectionViewDataSourceDelegator()<UICollectionViewDelegateFlowLayout>
 
+@property(nonatomic , strong) NSArray * sectionDataList;
 @property (nonatomic, strong) NSMutableDictionary * cacheCellDic;
 @property (nonatomic, strong) NSMutableDictionary * cacheHeaderDic;
 @property (nonatomic, strong) NSMutableDictionary * cacheFooterDic;
@@ -40,25 +42,11 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [self getSecionDataListWithSection:section].count;
+    return [self getSectionDataWithSection:section].cellDataList.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    
-    if ([self headerDataList]) {
-        return [self headerDataList].count;
-    }else {
-        NSArray * cellDataList = [self cellDataList];
-        if (cellDataList.count) {
-            if ([cellDataList.firstObject isKindOfClass:[NSArray class]]) {
-                return cellDataList.count;
-            }else {
-                return 1;
-            }
-        }
-    }
-    
-    return 0;
+    return self.sectionDataList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -161,36 +149,26 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
 
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-     NSArray * headerDataList = [self headerDataList];
-     if (section < headerDataList.count) {
-        NSObject * data = [headerDataList objectAtIndex:section];
-        return data.qlx_secionInset;
-     }else {
-         NSArray * footerDataList = [self footerDataList];
-         if (section < footerDataList.count) {
-             NSObject * data = [footerDataList objectAtIndex:section];
-             return data.qlx_secionInset;
-         }
+    QLXSectionData * sectionData = [self getSectionDataWithSection:section];
+     if (sectionData.headerData) {
+        return sectionData.headerData.qlx_secionInset;
+     }else if(sectionData.footerData){
+         return sectionData.footerData.qlx_secionInset;
      }
     if ([self.collectionView.collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
         UICollectionViewFlowLayout * layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
-        return layout.qlx_secionInset;
+        return layout.sectionInset;
     }
     return UIEdgeInsetsZero;
 }
 
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    NSArray * headerDataList = [self headerDataList];
-    if (section < headerDataList.count) {
-        NSObject * data = [headerDataList objectAtIndex:section];
-        return data.qlx_minimumLineSpacing;
-    }else {
-       NSArray * footerDataList = [self footerDataList];
-        if (section < footerDataList.count) {
-            NSObject * data = [footerDataList objectAtIndex:section];
-            return data.qlx_minimumLineSpacing;
-        }
+    QLXSectionData * sectionData = [self getSectionDataWithSection:section];
+    if (sectionData.headerData) {
+        return sectionData.headerData.qlx_minimumLineSpacing;;
+    }else if(sectionData.footerData){
+        return sectionData.footerData.qlx_minimumLineSpacing;
     }
     if ([self.collectionView.collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
         UICollectionViewFlowLayout * layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
@@ -200,16 +178,11 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    NSArray * headerDataList = [self headerDataList];
-    if (section < headerDataList.count) {
-        NSObject * data = [headerDataList objectAtIndex:section];
-        return data.qlx_minimumInteritemSpacing;
-    }else {
-        NSArray * footerDataList = [self footerDataList];
-        if (section < footerDataList.count) {
-            NSObject * data = [footerDataList objectAtIndex:section];
-            return data.qlx_minimumInteritemSpacing;
-        }
+    QLXSectionData * sectionData = [self getSectionDataWithSection:section];
+    if (sectionData.headerData) {
+        return sectionData.headerData.qlx_minimumInteritemSpacing;;
+    }else if(sectionData.footerData){
+        return sectionData.footerData.qlx_minimumInteritemSpacing;
     }
     
     if ([self.collectionView.collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
@@ -425,29 +398,14 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
     return view;
 }
 
-- (NSArray *)getSecionDataListWithSection:(NSInteger) section{
-    NSArray * list = [self cellDataList];
-    if (list.count) {
-        if (section == 0 && ![list.firstObject isKindOfClass:[NSArray class]]) {
-            return list;
-        }
-        if (section < list.count) {
-            NSArray * sectionDataList = [list objectAtIndex:section];
-            if ([sectionDataList isKindOfClass:[NSArray class]]) {
-                return sectionDataList;
-            }else {
-                QLXAssert(false, @"sectionDataList not be NSArray type");
-            }
-        }
-    }
-    return nil;
-}
+
 
 - (NSObject *)getCellDataWithIndexPath:(NSIndexPath *)indexPath{
-    NSArray * sectionDataList = [self getSecionDataListWithSection:indexPath.section];
-    if (indexPath.row < sectionDataList.count) {
+    QLXSectionData * sectionData = [self getSectionDataWithSection:indexPath.section];
+    
+    if (sectionData.cellDataList && indexPath.row < sectionData.cellDataList.count) {
         
-        NSObject * cellData = [sectionDataList objectAtIndex:indexPath.row];
+        NSObject * cellData = [sectionData.cellDataList objectAtIndex:indexPath.row];
         if ([cellData isKindOfClass:[UIView class]]) {
             return [self warpDataWithView:(UIView *)cellData isCell:true];
         }
@@ -459,71 +417,44 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
 
 
 - (NSObject *)getHeaderOrFooterDataWithKind:(NSString *)kind atSection:(NSUInteger)section{
-    NSArray * list;
+    QLXSectionData * sectionData = [self getSectionDataWithSection:section];
+    NSObject * data = nil;
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        list = [self headerDataList];
+        data = sectionData.headerData;
     }else if([kind isEqualToString:UICollectionElementKindSectionFooter]){
-        list = [self footerDataList];
+        data = sectionData.footerData;
     }
-    if (section < list.count) {
-        NSObject * object = [list objectAtIndex:section];
-        if ([object isKindOfClass:[UIView class]]) {
-              return [self warpDataWithView:(UIView *)object isCell:false];
-        }
-        return object;
+    if ([data isKindOfClass:[UIView class]]) {
+        return [self warpDataWithView:(UIView *)data isCell:false];
     }
     return nil;
 }
 
 
+#pragma mark private
 
-- (NSArray *)cellDataList{
-    if ([self.delegate respondsToSelector:@selector(qlx_cellDataListWithCollectionView:)]) {
-        NSArray * dataList = [self.delegate qlx_cellDataListWithCollectionView:self.collectionView];
-        if ([dataList isKindOfClass:[NSArray class]]) {
-            return dataList;
-        }else if(dataList){
-            QLXAssert(false, @"Result not be NSArray type");
-        }
+/**
+   get  secionData  in section index
+ */
+
+- (QLXSectionData *)getSectionDataWithSection:(NSUInteger)section{
+    if (section < self.sectionDataList.count ) {
+        return [self.sectionDataList objectAtIndex:section];
     }
     return nil;
 }
 
-- (NSArray *)headerDataList{
-    if ([self.delegate respondsToSelector:@selector(qlx_headerDataListWithCollectionView:)]) {
-        NSArray * dataList = [self.delegate qlx_headerDataListWithCollectionView:self.collectionView];
-        if ([dataList isKindOfClass:[NSArray class]]) {
-            return dataList;
-        }else if(dataList){
-            QLXAssert(false, @"Result not be NSArray type");
-        }
+
+#pragma mark -getter
+
+- (NSArray *)sectionDataList{
+    if ([self.delegate respondsToSelector:@selector(qlx_sectionDataListWithCollectionView:)]) {
+        return [self.delegate qlx_sectionDataListWithCollectionView:self.collectionView];
     }
-    return nil;
+    return @[];
 }
 
-- (NSArray *)footerDataList{
-    if ([self.delegate respondsToSelector:@selector(qlx_footerDataListWithCollectionView:)]) {
-        NSArray * dataList = [self.delegate qlx_footerDataListWithCollectionView:self.collectionView];
-        if ([dataList isKindOfClass:[NSArray class]]) {
-            return dataList;
-        }else if(dataList){
-            QLXAssert(false, @"Result not be NSArray type");
-        }
-    }
-    return nil;
-}
 
-- (NSArray *)decorationViewClassList{
-    if ([self.delegate respondsToSelector:@selector(qlx_decorationViewClassListWithCollectionView:)]) {
-        NSArray * classList = [self.delegate qlx_decorationViewClassListWithCollectionView:self.collectionView];
-        if ([classList isKindOfClass:[NSArray class]]) {
-            return classList;
-        }else if(classList){
-            QLXAssert(false, @"Result not be NSArray type");
-        }
-    }
-    return nil;
-}
 
 
 

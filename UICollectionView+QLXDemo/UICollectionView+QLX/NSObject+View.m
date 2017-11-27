@@ -33,6 +33,12 @@
 }
 
 
+#pragma mark QLXDiffable implementation
+
+- (BOOL)qlx_isEqualToObject:(id<QLXDiffable>)object{
+    return self == object;
+}
+
 #pragma mark - getter setter
 
 
