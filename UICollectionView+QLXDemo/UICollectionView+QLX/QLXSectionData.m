@@ -42,7 +42,7 @@
 - (void)setCellDataList:(NSMutableArray<NSObject *> *)cellDataList{
     
     if (cellDataList) {
-        QLXAssert([cellDataList isKindOfClass:[NSMutableArray class]], @"cellDataList must be NSArray")
+        QLXAssert([cellDataList isKindOfClass:[NSArray class]], @"cellDataList must be NSArray")
         NSObject * firstObject = cellDataList.count ? cellDataList.firstObject : nil;
         QLXAssert(![firstObject isKindOfClass:[NSArray class]], @"cellDataList 元素不应含有数组")
         if (firstObject && ![firstObject isKindOfClass:[UIView class]] && ![firstObject qlx_reuseIdentifierClass]) {
