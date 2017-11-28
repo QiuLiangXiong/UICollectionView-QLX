@@ -103,7 +103,10 @@
                 }
     
             }else {
-                [self.qlx_collectionView reloadData];
+                [UIView performWithoutAnimation:^{
+                   [self.qlx_collectionView reloadSections:[NSIndexSet indexSetWithIndex:sectionView.qlx_indexPath.section]];
+                }];
+               
             }
             
         }

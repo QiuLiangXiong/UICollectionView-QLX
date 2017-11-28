@@ -62,12 +62,12 @@
    
     
  
-    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, 50, 50)];
+    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, 44, 80, 80)];
     [button setTitle:@"添加" forState:0];
     [button setBackgroundColor:[UIColor blueColor]];
     [self.view addSubview:button];
     [button addTarget:self action:@selector(addTest) forControlEvents:(UIControlEventTouchUpInside)];
-    UIButton * button2 = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 50, 50)];
+    UIButton * button2 = [[UIButton alloc] initWithFrame:CGRectMake(150, 44, 80, 80)];
     [button2 setTitle:@"删除" forState:0];
     [button2 setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:button2];

@@ -24,7 +24,7 @@
     if (self) {
         [self titleLbl];
         [self subTitleLbl];
-        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = [UIColor brownColor];
         self.subTitleLbl.text = @"SDK解放路大煞风景说多累快放假老实点受打击了开发但是就离开手机端发说多累会计法说多累会计法说的放假了可适当方式豆腐";
         
         UIGestureRecognizer * tapGS = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDidSelected)];
