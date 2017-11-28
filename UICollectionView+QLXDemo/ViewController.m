@@ -52,9 +52,9 @@
     
     QLXSectionData * sectionData = [QLXSectionData new];
     sectionData.cellDataList = cellDataList;
-    //sectionData.headerData = headerView;//支持view 也支持data
+    sectionData.headerData = headerView;//支持view 也支持data
     sectionData.decorationData = [ADecroationView class];
-    //sectionData.footerData = [ACollectionViewFooterData new];
+    sectionData.footerData = [ACollectionViewFooterData new];
     self.dataList = @[sectionData];
 //
    
@@ -115,8 +115,8 @@
     NSMutableArray * cellDataList = (NSMutableArray *)sectionData.cellDataList;
     if ([cellDataList isKindOfClass:[NSMutableArray class]]) {
         
-//        [cellDataList qlx_removeObject:cellDataList.firstObject syncToView:true animated:true];
-        [cellDataList qlx_removeObjectsInArray:cellDataList syncToView:true animated:YES];
+        [cellDataList qlx_removeObject:cellDataList.firstObject syncToView:true animated:true];
+//        [cellDataList qlx_removeObjectsInArray:cellDataList syncToView:true animated:YES];
         
         
         
