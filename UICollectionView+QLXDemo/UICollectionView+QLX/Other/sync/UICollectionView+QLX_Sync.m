@@ -110,7 +110,7 @@
     NSMutableArray * collectionViews = [self qlx_getAllCollectionViewInsatnces];
     for (QLXWeakObject * weakObject in collectionViews) {
         UICollectionView * collectionView = weakObject.weakObject;
-        if (collectionView) {
+        if (collectionView && collectionView.qlx_oldDataSource) {
            QLXDataSource * newSourceData = [QLXDataSource createWithCollectionView:collectionView];
            QLXDataSource * oldSourceData = collectionView.qlx_oldDataSource;
             [QLXCollectionViewUpdateUtil performUpdatesWithNewData:newSourceData oldData:oldSourceData  view:collectionView animated:animated];
