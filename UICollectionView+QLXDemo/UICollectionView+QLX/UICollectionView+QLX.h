@@ -33,6 +33,6 @@
 
 @required
 
-- (NSArray *)qlx_sectionDataListWithCollectionView:(UICollectionView *) collectionView;
+- (NSArray<QLXSectionData *> *)qlx_sectionDataListWithCollectionView:(UICollectionView *) collectionView;
 
 @end

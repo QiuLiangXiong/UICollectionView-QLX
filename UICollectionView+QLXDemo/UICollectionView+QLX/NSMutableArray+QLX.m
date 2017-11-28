@@ -24,7 +24,6 @@ static BOOL  QLXWaitingSyncToView;
     
     if (!QLXWaitingSyncToView) {
         QLXWaitingSyncToView = true;
-        
 
         if ([NSThread isMainThread]) {
             dispatch_async(dispatch_get_main_queue(), ^{

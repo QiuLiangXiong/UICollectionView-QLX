@@ -68,7 +68,11 @@
     [button setBackgroundColor:[UIColor blueColor]];
     [self.view addSubview:button];
     [button addTarget:self action:@selector(addTest) forControlEvents:(UIControlEventTouchUpInside)];
-    
+    UIButton * button2 = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 50, 50)];
+    [button2 setTitle:@"删除" forState:0];
+    [button2 setBackgroundColor:[UIColor blueColor]];
+    [self.view addSubview:button2];
+    [button2 addTarget:self action:@selector(removeTest) forControlEvents:(UIControlEventTouchUpInside)];
     
     
     
@@ -86,12 +90,30 @@
     if ([cellDataList isKindOfClass:[NSMutableArray class]]) {
         
         
-        ACollectionViewData * data = [ACollectionViewData new];
-                data.color = [UIColor redColor];
-                data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-        [cellDataList qlx_insertObject:data atIndex:0];
+        
+        for (int i = 0 ; i < 1; i++) {
+            ACollectionViewData * data = [ACollectionViewData new];
+            data.color = [UIColor redColor];
+            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
+            [cellDataList qlx_insertObject:data atIndex:0 syncToView:true animated:true];
+        }
         
        
+        
+       
+        
+    }
+}
+- (void)removeTest{
+    QLXSectionData * sectionData = self.dataList.firstObject;
+    NSMutableArray * cellDataList = sectionData.cellDataList;
+    if ([cellDataList isKindOfClass:[NSMutableArray class]]) {
+        
+        [cellDataList qlx_removeObject:cellDataList.firstObject syncToView:true animated:true];
+        
+        
+        
+        
         
     }
 }
@@ -100,7 +122,7 @@
 #pragma mark - QLXCollectionViewDataSource
 
 
-- (NSArray *)qlx_sectionDataListWithCollectionView:(UICollectionView *)collectionView{
+- (NSArray<QLXSectionData *> *)qlx_sectionDataListWithCollectionView:(UICollectionView *)collectionView{
     return self.dataList;
 }
 

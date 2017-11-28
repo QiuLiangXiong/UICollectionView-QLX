@@ -26,8 +26,7 @@
         [self titleLbl];
         [self subTitleLbl];
         static int i = 0;
-        i++;
-        NSLog(@"%d",i);
+
     }
     return self;
 }
