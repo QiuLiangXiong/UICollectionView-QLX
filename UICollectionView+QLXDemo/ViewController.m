@@ -15,24 +15,14 @@
 #import "TestCollectionViewCell.h"
 #import "ViewHeader.h"
 #import "UICollectionView+QLX.h"
+#import "TestView.h"
 
 
 @interface ViewController ()<QLXCollectionViewDataSource,UICollectionViewDelegate>
 
 @property(nonatomic , strong)  UICollectionView * cv;
 
-@property(nonatomic , strong)  NSMutableArray * headerDataList;
-
-@property(nonatomic , strong)  NSMutableArray * cellDataList;
-
-@property(nonatomic , strong)  NSMutableArray * footerDataList;
-
-@property(nonatomic , strong)  NSMutableArray * decroationViewClassList;
-
-@property(nonatomic , strong) NSArray * t;
-
 @property(nonatomic , strong) NSArray<QLXSectionData *> * dataList;
-
 
 @end
 
@@ -49,13 +39,22 @@
     [self.cv reloadData];
     
 
+    ViewHeader * headerView = [ViewHeader new];
+    headerView.qlx_minimumLineSpacing = 20;
+    [headerView setTitle:@"我是头部"];
+    headerView.qlx_secionInset = UIEdgeInsetsMake(10, 10, 10, 10);
 
+    NSMutableArray * cellDataList = [NSMutableArray new];
+    TestCollectionViewCell * cell = [TestCollectionViewCell new];
+    [cell setTitle:@"我是一个Cell类型的View"];
+    [cellDataList addObject:cell];
+    
     
     QLXSectionData * sectionData = [QLXSectionData new];
-    sectionData.cellDataList = self.cellDataList;
-    sectionData.headerData = self.headerDataList.firstObject;
-    sectionData.decorationData = self.decroationViewClassList.firstObject;
-    sectionData.footerData = self.footerDataList.firstObject;
+    sectionData.cellDataList = cellDataList;
+    sectionData.headerData = headerView;//支持view 也支持data
+    sectionData.decorationData = [ADecroationView class];
+    sectionData.footerData = [ACollectionViewFooterData new];
     self.dataList = @[sectionData];
 //
    
@@ -91,11 +90,18 @@
         
         
         
+        int rand =random()%2;
         for (int i = 0 ; i < 1; i++) {
-            ACollectionViewData * data = [ACollectionViewData new];
-            data.color = [UIColor redColor];
-            data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-            [cellDataList qlx_insertObject:data atIndex:0 syncToView:true animated:true];
+            
+            if(rand == 0){
+                ACollectionViewData * data = [ACollectionViewData new];
+                data.title = @"我是一个Data";
+                [cellDataList qlx_insertObject:data atIndex:0 syncToView:true animated:true];
+            }else {
+                [cellDataList qlx_insertObject:[TestView new] atIndex:0 syncToView:true animated:true];
+            }
+            
+           
         }
         
        
@@ -106,7 +112,7 @@
 }
 - (void)removeTest{
     QLXSectionData * sectionData = self.dataList.firstObject;
-    NSMutableArray * cellDataList = sectionData.cellDataList;
+    NSMutableArray * cellDataList = (NSMutableArray *)sectionData.cellDataList;
     if ([cellDataList isKindOfClass:[NSMutableArray class]]) {
         
         [cellDataList qlx_removeObject:cellDataList.firstObject syncToView:true animated:true];
@@ -146,60 +152,5 @@
     return _cv;
 }
 
--(NSMutableArray *)headerDataList{
-    if (!_headerDataList) {
-        _headerDataList = [NSMutableArray new];
-        ViewHeader * view = [ViewHeader new];
-        view.qlx_minimumLineSpacing = 20;
-        [view setTitle:@"我是头部"];
-        view.qlx_secionInset = UIEdgeInsetsMake(10, 10, 10, 10);
-        
-        [_headerDataList addObject:view];
-    }
-    return _headerDataList;
-}
-
--(NSMutableArray *)footerDataList{
-    if (!_footerDataList) {
-        _footerDataList = [NSMutableArray new];
-        [_footerDataList addObject:[ACollectionViewFooterData new]];
-    }
-    return _footerDataList;
-}
-
--(NSMutableArray *)cellDataList{
-    if (!_cellDataList) {
-        _cellDataList = [NSMutableArray new];
-        ACollectionViewData * data = [ACollectionViewData new];
-//        data.color = [UIColor redColor];
-//        data.title = @"SD龙卷风大煞风景SD街坊邻居水电费圣诞节发了多少了发生的分时度假发了多少佛挡杀佛";
-//        [_cellDataList addObject:data];
-        TestCollectionViewCell * cell = [TestCollectionViewCell new];
-        [cell setTitle:@"1.SD凤林街道斯洛伐克束带结第三方的看两集"];
-        [_cellDataList addObject:cell];
-        
-
-     
-        
-
-//        NSMutableArray * res = [NSMutableArray new];
-//        [res addObject:_cellDataList];
-//        _cellDataList = res;
-        
-//
-       
-        
-        
-    }
-    return _cellDataList;
-}
-
--(NSMutableArray *)decroationViewClassList{
-    if (!_decroationViewClassList) {
-        _decroationViewClassList = [NSMutableArray new];
-        [_decroationViewClassList addObject:[ADecroationView class]];
-    }
-    return _decroationViewClassList;
-}
 
 @end

@@ -23,9 +23,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self titleLbl];
-        [self subTitleLbl];
-        static int i = 0;
+        self.backgroundColor = [UIColor blueColor];
 
     }
     return self;
@@ -34,8 +32,7 @@
 -(void)qlx_reuseWithData:(NSObject *)data indexPath:(NSIndexPath *)indexPath{
     [super qlx_reuseWithData:data indexPath:indexPath];
     ACollectionViewData * rData = (ACollectionViewData *)data;
-    self.contentView.backgroundColor = rData.color;
-    self.subTitleLbl.text = rData.title;
+    self.titleLbl.text = rData.title;
 }
 
 /**
@@ -64,27 +61,13 @@
             make.top.equalTo(self.contentView).offset(20);
             make.left.equalTo(self.contentView).offset(10);
             make.bottom.lessThanOrEqualTo(self.contentView).offset(-20);
-            make.width.mas_equalTo(@(_titleLbl.frame.size.width));
+            make.right.equalTo(self.contentView).offset(-20);
         }];
     }
     return _titleLbl;
 }
 
--(UILabel *)subTitleLbl{
-    if (!_subTitleLbl) {
-        _subTitleLbl = [UILabel new];
-        _subTitleLbl.numberOfLines = 0;
-        [self.contentView addSubview:_subTitleLbl];
-        
-        [_subTitleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self.contentView).offset(-10);
-            make.top.equalTo(self.titleLbl);
-            make.bottom.equalTo(self.contentView).offset(-20);
-            make.left.greaterThanOrEqualTo(self.titleLbl.mas_right).offset(20);
-        }];
-    }
-    return _subTitleLbl;
-}
+
 
 - (UIView *)contentView{
     return self;

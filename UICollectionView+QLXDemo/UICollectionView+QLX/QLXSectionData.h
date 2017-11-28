@@ -11,7 +11,7 @@
 
 @interface QLXSectionData : NSObject<QLXDiffable>
 
-@property (nonatomic, strong) NSArray<NSObject *> * cellDataList;
+@property (nonatomic, strong) NSMutableArray<NSObject *> * cellDataList;
 @property (nonatomic, strong) NSObject * headerData;
 @property (nonatomic, strong) NSObject * footerData;
 @property (nonatomic, strong) Class decorationData;
