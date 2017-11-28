@@ -13,6 +13,8 @@
 @implementation QLXSectionData
 
 @synthesize decorationData = _decorationData;
+@synthesize cellDataList = _cellDataList;
+@synthesize headerData = _headerData;
 
 
 - (void)setHeaderData:(NSObject *)headerData{
@@ -55,6 +57,7 @@
     }
 }
 
+
 - (void)setDecorationData:(Class)decorationData{
     if (decorationData && ![decorationData isSubclassOfClass:[UICollectionReusableView class]]) {
          QLXAssert(false, @"decorationData 必须是 UICollectionReusableView 的子类");
@@ -67,6 +70,30 @@
         return [UICollectionReusableView class];
     }
     return _decorationData;
+}
+
+
+#pragma mark - getter
+
+- (NSMutableArray<NSObject *> *)cellDataList{
+    if (!_cellDataList) {
+        _cellDataList = [NSMutableArray new];
+    }
+    return _cellDataList;
+}
+
+
+- (NSObject *)headerData{
+    if (!_headerData) {
+        if (_cellDataList.count == 0 && _footerData == nil) {
+            NSObject * object = [NSObject new];
+            object.qlx_reuseIdentifierClass = [UICollectionReusableView class];
+            object.qlx_viewWidth = 0.01;
+            object.qlx_viewHeight = 0.01;
+            _headerData = object;
+        }
+    }
+    return _headerData;
 }
 
 

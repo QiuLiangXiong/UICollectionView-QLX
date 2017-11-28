@@ -23,7 +23,7 @@
 /**
  *  便利构造  产生一个默认系统流布局初始化的UICollectionView对象
  */
-+ (instancetype) createForFlowLayout;
++ (instancetype) qlx_createForFlowLayout;
 
 
 @end

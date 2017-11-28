@@ -52,7 +52,7 @@
     
     QLXSectionData * sectionData = [QLXSectionData new];
     sectionData.cellDataList = cellDataList;
-   // sectionData.headerData = headerView;//支持view 也支持data
+    //sectionData.headerData = headerView;//支持view 也支持data
     sectionData.decorationData = [ADecroationView class];
     //sectionData.footerData = [ACollectionViewFooterData new];
     self.dataList = @[sectionData];
@@ -74,12 +74,7 @@
     [button2 addTarget:self action:@selector(removeTest) forControlEvents:(UIControlEventTouchUpInside)];
     
     
-    
-//    [self performSelector:@selector(reloadData) withObject:nil afterDelay:2];
-    
-//    [self performSelector:@selector(reloadData) withObject:nil afterDelay:5];
-    
-    // Do any additional setup after loading the view, typically from a nib.
+
 }
 
 
@@ -120,7 +115,8 @@
     NSMutableArray * cellDataList = (NSMutableArray *)sectionData.cellDataList;
     if ([cellDataList isKindOfClass:[NSMutableArray class]]) {
         
-        [cellDataList qlx_removeObject:cellDataList.firstObject syncToView:true animated:true];
+//        [cellDataList qlx_removeObject:cellDataList.firstObject syncToView:true animated:true];
+        [cellDataList qlx_removeObjectsInArray:cellDataList syncToView:true animated:YES];
         
         
         
@@ -148,7 +144,7 @@
 
 -(UICollectionView *)cv{
     if (!_cv) {
-        _cv = [UICollectionView createForFlowLayout];
+        _cv = [UICollectionView qlx_createForFlowLayout];
         _cv.frame = self.view.bounds;
         _cv.delegate = self;
         _cv.qlx_dataSource = self;

@@ -427,7 +427,7 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
     if ([data isKindOfClass:[UIView class]]) {
         return [self warpDataWithView:(UIView *)data isCell:false];
     }
-    return nil;
+    return data;
 }
 
 

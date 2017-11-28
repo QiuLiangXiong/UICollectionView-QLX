@@ -56,6 +56,8 @@
     return attributes;
 }
 
+
+
 #pragma mark - getter
 
 - (NSMutableArray *)decroationViewAttsArray{
@@ -71,6 +73,7 @@
             if (lastAtt == nil) {
                 lastAtt = firstAtt;
             }
+            
             UICollectionViewLayoutAttributes * decroationAtt = [self getDecorationViewAttributesWithSection:i firstAtt:firstAtt lastAtt:lastAtt];
             if (decroationAtt) {
                 [atts addObject:decroationAtt];
@@ -83,6 +86,8 @@
 - (void)setDecroationViewAttsArray:(NSMutableArray *)decroationViewAttsArray{
     objc_setAssociatedObject(self, @selector(decroationViewAttsArray), decroationViewAttsArray, OBJC_ASSOCIATION_RETAIN);
 }
+
+
 
 
 - (id<UICollectionViewDelegateFlowLayout>)delegate{
@@ -102,7 +107,7 @@
 
 
 - (UICollectionViewLayoutAttributes *)firstLayoutAttributeWithSection:(NSUInteger)section{
-    if ([self headerSizeWithSection:section].height >= 0.01) {
+    if ([self headerSizeWithSection:section].height >= 0.01f) {
         return [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
     }else {
         if ([self.collectionView numberOfItemsInSection:section]) {
@@ -113,7 +118,7 @@
 }
 
 - (UICollectionViewLayoutAttributes *)lastLayoutAttributeWithSection:(NSUInteger)section{
-    if ([self footerSizeWithSection:section].height >= 0.01) {
+    if ([self footerSizeWithSection:section].height >= 0.01f) {
         return [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter atIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
     }else {
         NSUInteger numOfItems = [self.collectionView numberOfItemsInSection:section];

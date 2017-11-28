@@ -21,7 +21,7 @@
     });
 }
 
-+ (instancetype) createForFlowLayout{
++ (instancetype) qlx_createForFlowLayout{
     UICollectionViewFlowLayout * layout = [UICollectionViewFlowLayout new];
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;

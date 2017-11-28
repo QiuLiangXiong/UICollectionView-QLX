@@ -93,7 +93,6 @@
             [UIView performWithoutAnimation:^{
                 [collectionView performBatchUpdates:updates completion:completion];
             }];
-            
         }
         
     });
