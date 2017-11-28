@@ -9,6 +9,7 @@
 #import "QLXDataSource.h"
 #import "UICollectionView+QLX.h"
 #import "NSMutableArray+QLX.h"
+#import "QLXCollectionViewUpdateUtil.h"
 
 @implementation QLXDataSource
 
@@ -46,9 +47,9 @@
             if ([ele isKindOfClass:[QLXSectionData class]]) {
                 QLXSectionData * sectionData = (QLXSectionData *)ele;
                 QLXSectionData * copySectionData = [QLXSectionData new];
-                copySectionData.headerData = sectionData.headerData;
-                copySectionData.footerData = sectionData.footerData;
-                copySectionData.cellDataList = [sectionData.cellDataList copy];
+                copySectionData.headerData = [self _copyInstanceIfNeed:sectionData.headerData];
+                copySectionData.footerData = [self _copyInstanceIfNeed:sectionData.footerData];
+                copySectionData.cellDataList =  (NSMutableArray *)[self _copyInstanceIfNeed:sectionData.cellDataList];
                 copySectionData.decorationData = sectionData.decorationData;
                 [newArray addObject:copySectionData];
             }else {
@@ -59,6 +60,18 @@
     }
     return [NSMutableArray new];
 }
+
+- (NSObject *)_copyInstanceIfNeed:(NSObject *)object{
+    if (object == nil) {
+        return nil;
+    }
+    if ([object isKindOfClass:[NSMutableArray class]]) {
+        return [object mutableCopy];
+    }
+    return object;
+}
+
+
 
 
 @end

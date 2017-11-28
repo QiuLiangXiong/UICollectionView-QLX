@@ -52,9 +52,9 @@
     
     QLXSectionData * sectionData = [QLXSectionData new];
     sectionData.cellDataList = cellDataList;
-    sectionData.headerData = headerView;//支持view 也支持data
+   // sectionData.headerData = headerView;//支持view 也支持data
     sectionData.decorationData = [ADecroationView class];
-    sectionData.footerData = [ACollectionViewFooterData new];
+    //sectionData.footerData = [ACollectionViewFooterData new];
     self.dataList = @[sectionData];
 //
    
@@ -69,7 +69,7 @@
     [button addTarget:self action:@selector(addTest) forControlEvents:(UIControlEventTouchUpInside)];
     UIButton * button2 = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 50, 50)];
     [button2 setTitle:@"删除" forState:0];
-    [button2 setBackgroundColor:[UIColor blueColor]];
+    [button2 setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:button2];
     [button2 addTarget:self action:@selector(removeTest) forControlEvents:(UIControlEventTouchUpInside)];
     
@@ -88,6 +88,11 @@
     NSMutableArray * cellDataList = sectionData.cellDataList;
     if ([cellDataList isKindOfClass:[NSMutableArray class]]) {
         
+        NSMutableArray * dd = nil;
+        NSMutableArray * dd2 = [NSMutableArray new];
+        if (dd.count == dd2.count) {
+            NSLog(@"ddd");
+        }
         
         
         int rand =random()%2;
