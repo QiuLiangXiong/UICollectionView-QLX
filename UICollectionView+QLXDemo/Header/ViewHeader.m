@@ -47,8 +47,7 @@
 - (void)onDidSelected{
     
     self.subTitleLbl.text = @"SDK解放路大煞风景说多累快放假老实点受打击了开发但是就离开手机端发说多累会计法说多累会计法说的放假了可适当方式豆腐";
-    [self qlx_viewSizeChanged];
-    [self.qlx_collectionView reloadData];
+    [self qlx_updateViewWithAnimated:true];
 }
 
 - (void)setTitle:(NSString *)title{

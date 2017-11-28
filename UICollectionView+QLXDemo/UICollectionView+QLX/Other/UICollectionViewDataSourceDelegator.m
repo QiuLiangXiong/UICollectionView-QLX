@@ -94,9 +94,9 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
                 cellData.qlx_viewWidth = size.width;
                 cellData.qlx_viewHeight = size.height;
             }
-            return CGSizeMake(cellData.qlx_viewWidth, cellData.qlx_viewHeight);
+            return [self safeSize: CGSizeMake(cellData.qlx_viewWidth, cellData.qlx_viewHeight)];
         }
-    return CGSizeZero;
+    return [self safeSize:CGSizeZero];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
@@ -117,9 +117,9 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
             headerData.qlx_viewWidth = size.width;
             headerData.qlx_viewHeight = size.height;
          }
-         return CGSizeMake(headerData.qlx_viewWidth, headerData.qlx_viewHeight);
+         return [self safeSize:CGSizeMake(headerData.qlx_viewWidth, headerData.qlx_viewHeight)];
     }
-    return CGSizeZero;
+    return [self safeSize:CGSizeZero];;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
@@ -142,9 +142,9 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
                 footerData.qlx_viewHeight = size.height;
             }
             
-            return CGSizeMake(footerData.qlx_viewWidth, footerData.qlx_viewHeight);
+            return [self safeSize:CGSizeMake(footerData.qlx_viewWidth, footerData.qlx_viewHeight)];
         }
-    return CGSizeZero;
+    return [self safeSize:CGSizeZero];
 }
 
 
@@ -444,6 +444,14 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
     return nil;
 }
 
+- (CGSize)safeSize:(CGSize)size{
+    if (size.width >= 0.01f && size.height >= 0.01f) {
+        return size;
+    }else {
+        return CGSizeMake(fmax(0.01f, size.width), fmax(0.01f, size.height));
+    }
+}
+
 
 #pragma mark -getter
 
@@ -453,6 +461,7 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
     }
     return @[];
 }
+
 
 
 

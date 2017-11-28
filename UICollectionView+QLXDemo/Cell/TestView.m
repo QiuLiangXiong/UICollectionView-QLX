@@ -27,6 +27,10 @@
         self.frame = CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width-20, 0);
 
         self.backgroundColor = [UIColor yellowColor];
+        UIGestureRecognizer * tapGS = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDidSelected)];
+        
+        [self.titleLbl addGestureRecognizer:tapGS];
+        self.titleLbl.userInteractionEnabled = true;
 
     }
     return self;
@@ -35,6 +39,8 @@
 
 
 - (void)onDidSelected{
+    self.titleLbl.text = @"我是一个View我是一个View我是一个View我是一个View我是一个View我是一个View我是一个View";
+    [self qlx_updateViewWithAnimated:true];
     
     
 }
@@ -93,7 +99,7 @@
 -(UILabel *)titleLbl{
     if (!_titleLbl) {
         _titleLbl = [UILabel new];
-        _titleLbl.numberOfLines = 1;
+        _titleLbl.numberOfLines = 0;
         _titleLbl.text = @"个人信息";
         [self addSubview:_titleLbl];
         

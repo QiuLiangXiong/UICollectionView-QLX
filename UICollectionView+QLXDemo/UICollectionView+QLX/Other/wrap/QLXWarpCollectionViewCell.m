@@ -24,7 +24,7 @@
     [super qlx_reuseWithData:data indexPath:indexPath];
     QLXAssert([data isKindOfClass:[QLXWrapViewData class]], @"data must be QLXWrapViewData ");
     QLXWrapViewData * wrapData = (QLXWrapViewData *)data;
-
+    
     UIView * rootView = [self getRootView];
     if (rootView != wrapData.rootView) {
         [rootView removeFromSuperview];
@@ -135,5 +135,7 @@
 - (UIView *)getRootView{
     return (UIView *)self.contentView.subviews.lastObject;
 }
+
+
 
 @end

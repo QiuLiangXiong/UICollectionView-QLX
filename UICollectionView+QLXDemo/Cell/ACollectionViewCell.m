@@ -24,6 +24,12 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor blueColor];
+        
+        UIGestureRecognizer * tapGS = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDidSelected)];
+        
+        [self.titleLbl addGestureRecognizer:tapGS];
+        self.titleLbl.userInteractionEnabled = true;
+        
 
     }
     return self;
@@ -43,6 +49,12 @@
     NSLog(@"%@",self.qlx_indexPath);
 }
 
+- (void)onDidSelected{
+    ACollectionViewData * rData = (ACollectionViewData *)self.qlx_data;
+    rData.title = @"我是一个Data我是一个Data我是一个Data我是一个Data我是一个Data我是一个Data我是一个Data我是一个Data";;
+    [self qlx_updateViewWithAnimated:true];
+}
+
 
 //-(CGSize)qlx_viewSize{
 //    return CGSizeMake(self.collectionView.frame.size.width, 50);
@@ -51,7 +63,7 @@
 -(UILabel *)titleLbl{
     if (!_titleLbl) {
         _titleLbl = [UILabel new];
-        _titleLbl.numberOfLines = 1;
+        _titleLbl.numberOfLines = 0;
         _titleLbl.text = @"个人信息";
         [self.contentView addSubview:_titleLbl];
         
@@ -69,8 +81,8 @@
 
 
 
-- (UIView *)contentView{
-    return self;
-}
+//- (UIView *)contentView{
+//    return self;
+//}
 
 @end

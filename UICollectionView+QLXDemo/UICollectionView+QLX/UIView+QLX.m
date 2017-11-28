@@ -58,9 +58,70 @@
     return comproessedSize;
 }
 
+- (void)qlx_updateViewWithAnimated:(BOOL)animated{
+    
+    if (self.qlx_collectionView && self.superview) {
+
+        
+        NSNumber * isCell;
+        UICollectionViewCell * cell = nil;
+        UICollectionReusableView * sectionView = nil;
+        
+        for (UIView * view = self; view; view = view.superview) {
+            if ([view isKindOfClass:[UICollectionView class]]) {
+                break;
+            }
+            if ([view.superview isKindOfClass:[UICollectionView class]]) {
+                if ([view isKindOfClass:[UICollectionViewCell class]]) {
+                    cell = (UICollectionViewCell *)view;
+                    isCell = @(true);
+                }else if([view isKindOfClass:[UICollectionReusableView class]]){
+                    sectionView = (UICollectionReusableView *)view;
+                    isCell = @(false);
+                }
+                break;
+            }
+        }
+        if (cell || sectionView) {
+            [self updateViewSizeIfNeedWithView:cell ? cell : sectionView];
+            
+            if ([isCell boolValue]) {
+                NSIndexPath * indexPath = [self.qlx_collectionView indexPathForCell:cell];
+                if (indexPath && indexPath.row != NSNotFound &&indexPath.section != NSNotFound) {
+                    if (animated) {
+                        [UIView animateWithDuration:0.3 animations:^{
+                           [self.qlx_collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                        
+                        }];
+                    }else{
+                        [UIView performWithoutAnimation:^{
+                             [self.qlx_collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                        }];
+                    }
+                }else {
+                      [self.qlx_collectionView reloadData];
+                }
+    
+            }else {
+                [self.qlx_collectionView reloadData];
+            }
+            
+        }
+    }
+}
+
+
+
+
 - (void)qlx_viewSizeChanged{
     [super qlx_viewSizeChanged];
-    self.frame = CGRectZero;
+    if (self.qlx_collectionView ) {
+        if ([self isVerticalLayout]) {
+            self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 0);
+        }else {
+            self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 0, self.frame.size.height);
+        }
+    }
 }
 
 - (CGFloat)qlx_viewWidth{
@@ -156,6 +217,62 @@
         [view addConstraint:heightConstraint];;
     }
 }
+
+- (void)updateViewSizeIfNeedWithView:(UIView *)view{
+    if ([view isKindOfClass:NSClassFromString(@"QLXWarpCollectionViewCell")]) {
+        
+        UIView * rootView = ((UICollectionViewCell * )view).contentView.subviews.lastObject;
+        
+        if ([self isAutoLayoutWithView:rootView]) {
+            rootView.qlx_viewWidth = 0;
+            rootView.qlx_viewHeight = 0;
+            [rootView qlx_viewSizeChanged];
+        }
+    }else if([view isKindOfClass:NSClassFromString(@"QLXWarpCollectionReusableView")]){
+        UIView * rootView = ((UICollectionReusableView * )view).subviews.lastObject;
+        if ([self isAutoLayoutWithView:rootView]) {
+            rootView.qlx_viewWidth = 0;
+            rootView.qlx_viewHeight = 0;
+            [rootView qlx_viewSizeChanged];
+        }
+    }else if([view isKindOfClass:NSClassFromString(@"QLXWrapReuseCollectionViewCell")]){
+        UIView * rootView = ((UICollectionViewCell * )view).contentView.subviews.lastObject;
+        
+        if ([self isAutoLayoutWithView:rootView]) {
+            [view.qlx_data qlx_viewSizeChanged];
+        }
+    }else if([view isKindOfClass:NSClassFromString(@"QLXWrapReuseCollectionReusableView")]){
+        UIView * rootView = ((UICollectionReusableView * )view).subviews.lastObject;
+        if ([self isAutoLayoutWithView:rootView]) {
+            [view.qlx_data qlx_viewSizeChanged];
+        }
+    }else if([view isKindOfClass:[UICollectionViewCell class]]){
+        UIView * rootView = ((UICollectionViewCell * )view).contentView;
+        if ([self isAutoLayoutWithView:rootView]) {
+            [view.qlx_data qlx_viewSizeChanged];
+        }
+    }else if([view isKindOfClass:[UICollectionReusableView class]]){
+        UIView * rootView = ((UICollectionReusableView * )view);
+        if ([self isAutoLayoutWithView:rootView]) {
+            [view.qlx_data qlx_viewSizeChanged];
+        }
+    }
+    
+}
+
+-(BOOL)isAutoLayoutWithView:(UIView *)view{
+    BOOL isAutoLayout = false;
+    if ([view isKindOfClass:[UIView class]]) {
+        for (UIView * sub in view.subviews) {
+            if (sub.translatesAutoresizingMaskIntoConstraints == NO) {
+                isAutoLayout = true;
+                break;
+            }
+        }
+    }
+    return isAutoLayout;
+}
+
 
 
 

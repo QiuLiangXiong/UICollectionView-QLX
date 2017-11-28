@@ -35,4 +35,10 @@
 
 - (CGFloat)qlx_viewHeight;
 
+/**
+ 本视图变化时调用该方法刷新
+ note : don't call this method in @SEL(qlx_reuseWithData: indexPath:)
+ */
+- (void)qlx_updateViewWithAnimated:(BOOL)animated;
+
 @end
