@@ -135,7 +135,7 @@
 #pragma mark - UICollectionViewDelegate
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    NSLog(@"点击了section:%ld,row:%ld",(long)indexPath.section,(long)indexPath.row);
 }
 
 
