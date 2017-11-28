@@ -89,7 +89,7 @@
                 NSIndexPath * indexPath = [self.qlx_collectionView indexPathForCell:cell];
                 if (indexPath && indexPath.row != NSNotFound &&indexPath.section != NSNotFound) {
                     if (animated) {
-                        [UIView animateWithDuration:0.3 animations:^{
+                        [UIView animateWithDuration:0.2 animations:^{
                            [self.qlx_collectionView reloadItemsAtIndexPaths:@[indexPath]];
                         
                         }];
@@ -222,39 +222,58 @@
     if ([view isKindOfClass:NSClassFromString(@"QLXWarpCollectionViewCell")]) {
         
         UIView * rootView = ((UICollectionViewCell * )view).contentView.subviews.lastObject;
-        
-        if ([self isAutoLayoutWithView:rootView]) {
-            rootView.qlx_viewWidth = 0;
-            rootView.qlx_viewHeight = 0;
-            [rootView qlx_viewSizeChanged];
+        CGSize size = rootView.frame.size;
+        if (rootView.qlx_viewWidth == size.width || rootView.qlx_viewHeight == size.height) {
+            if ([self isAutoLayoutWithView:rootView]) {
+                rootView.qlx_viewWidth = 0;
+                rootView.qlx_viewHeight = 0;
+                [rootView qlx_viewSizeChanged];
+            }
         }
+        
+        
     }else if([view isKindOfClass:NSClassFromString(@"QLXWarpCollectionReusableView")]){
         UIView * rootView = ((UICollectionReusableView * )view).subviews.lastObject;
-        if ([self isAutoLayoutWithView:rootView]) {
-            rootView.qlx_viewWidth = 0;
-            rootView.qlx_viewHeight = 0;
-            [rootView qlx_viewSizeChanged];
+        CGSize size = rootView.frame.size;
+        if (rootView.qlx_viewWidth == size.width || rootView.qlx_viewHeight == size.height) {
+            if ([self isAutoLayoutWithView:rootView]) {
+                rootView.qlx_viewWidth = 0;
+                rootView.qlx_viewHeight = 0;
+                [rootView qlx_viewSizeChanged];
+            }
         }
     }else if([view isKindOfClass:NSClassFromString(@"QLXWrapReuseCollectionViewCell")]){
         UIView * rootView = ((UICollectionViewCell * )view).contentView.subviews.lastObject;
-        
-        if ([self isAutoLayoutWithView:rootView]) {
-            [view.qlx_data qlx_viewSizeChanged];
+        CGSize size = rootView.frame.size;
+        if (view.qlx_data.qlx_viewWidth == size.width || view.qlx_data.qlx_viewHeight == size.height) {
+            if ([self isAutoLayoutWithView:rootView]) {
+                [view.qlx_data qlx_viewSizeChanged];
+            }
         }
+       
     }else if([view isKindOfClass:NSClassFromString(@"QLXWrapReuseCollectionReusableView")]){
         UIView * rootView = ((UICollectionReusableView * )view).subviews.lastObject;
-        if ([self isAutoLayoutWithView:rootView]) {
-            [view.qlx_data qlx_viewSizeChanged];
+        CGSize size = rootView.frame.size;
+        if (view.qlx_data.qlx_viewWidth == size.width || view.qlx_data.qlx_viewHeight == size.height) {
+            if ([self isAutoLayoutWithView:rootView]) {
+                [view.qlx_data qlx_viewSizeChanged];
+            }
         }
     }else if([view isKindOfClass:[UICollectionViewCell class]]){
         UIView * rootView = ((UICollectionViewCell * )view).contentView;
-        if ([self isAutoLayoutWithView:rootView]) {
-            [view.qlx_data qlx_viewSizeChanged];
+        CGSize size = rootView.frame.size;
+        if (view.qlx_data.qlx_viewWidth == size.width || view.qlx_data.qlx_viewHeight == size.height) {
+            if ([self isAutoLayoutWithView:rootView]) {
+                [view.qlx_data qlx_viewSizeChanged];
+            }
         }
     }else if([view isKindOfClass:[UICollectionReusableView class]]){
         UIView * rootView = ((UICollectionReusableView * )view);
-        if ([self isAutoLayoutWithView:rootView]) {
-            [view.qlx_data qlx_viewSizeChanged];
+        CGSize size = rootView.frame.size;
+        if (view.qlx_data.qlx_viewWidth == size.width || view.qlx_data.qlx_viewHeight == size.height) {
+            if ([self isAutoLayoutWithView:rootView]) {
+                [view.qlx_data qlx_viewSizeChanged];
+            }
         }
     }
     

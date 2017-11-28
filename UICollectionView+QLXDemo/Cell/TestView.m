@@ -39,7 +39,7 @@
 
 
 - (void)onDidSelected{
-    self.titleLbl.text = @"我是一个View我是一个View我是一个View我是一个View我是一个View我是一个View我是一个View";
+    self.titleLbl.text = @"我是一个View我是一个View我是一个View我是一个View我是一个View我是一个View我是一个View我是一个View我是一个View我是一个Vi我是一个View我是一个View我是一个Vi我是一个View我是一个View我是一个Vi我是一个View我是一个View我是一个Vi我是一个View我是一个View我是一个Vi我是一个View我是一个View我是一个Vi";
     [self qlx_updateViewWithAnimated:true];
     
     
