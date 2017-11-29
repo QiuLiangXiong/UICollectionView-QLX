@@ -11,7 +11,7 @@ _在podfile文件中加入_ `pod 'UICollectionView-QLX', '~> 2.0.0'` _或_ `pod 
 # UICollectionView-QLX
 一款基于UICollectionView扩展，告别繁琐的代理，一个数组就能搞定数据源，数组自动同步视图， 更好用的UICollectionView。
 
-(该项目是 [YYKit](https://github.com/ibireme/YYKit) 组件之一)
+
 
 
 
@@ -45,4 +45,4 @@ _在podfile文件中加入_ `pod 'UICollectionView-QLX', '~> 2.0.0'` _或_ `pod 
 
 许可证
 ==============
-YYModel 使用 MIT 许可证，详情见 LICENSE 文件。
+UICollectionView-QLX 使用 MIT 许可证，详情见 LICENSE 文件。
