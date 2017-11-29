@@ -9,4 +9,4 @@
 _在podfile文件中加入_ `pod 'UICollectionView-QLX', '~> 2.0.0'` _或_ `pod "UICollectionView-QLX"`
 <br />_使用_ `pod install`_即可一键引入_
 # UICollectionView-QLX
- 数据即视图 映射
+一块基于UICollectionView扩展，告别繁琐的代理，一个数组就能搞定数据源，数组自动同步视图， 更好用的UICollectionView。
