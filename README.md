@@ -26,7 +26,7 @@ _在podfile文件中加入_ `pod 'UICollectionView-QLX', '~> 2.0.0'` _或_ `pod 
 
 1. 在 Podfile 中添加 `pod 'UICollectionView-QLX'`。
 2. 执行 `pod install` 或 `pod update`。
-3. 导入 `UICollectionView+QLX.h。
+3. 导入 `UICollectionView+QLX.h`。
 ### 手动安装
 
 1. 下载Demo内 UICollectionView+QLX 文件夹内的所有内容。
