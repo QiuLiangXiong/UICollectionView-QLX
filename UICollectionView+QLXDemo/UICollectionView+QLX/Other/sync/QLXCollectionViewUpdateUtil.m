@@ -10,7 +10,7 @@
 #import "QLXDiffUtil.h"
 #import "QLXDataSource.h"
 #import "QLXSectionData.h"
-#import "NSObject+View.h"
+#import "NSObject+QLXView.h"
 
 
 @interface QLXCollectionViewDiffResult : NSObject

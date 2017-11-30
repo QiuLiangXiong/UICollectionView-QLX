@@ -11,7 +11,7 @@
 #import "QLXDiffUtil.h"
 
 
-@interface NSObject(View)<QLXDiffable>
+@interface NSObject(QLXView)<QLXDiffable>
 
 /**
  *  数据映射绑定视图的类名  不能为空

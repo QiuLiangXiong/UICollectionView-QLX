@@ -10,7 +10,7 @@
 #import <objc/runtime.h>
 #import "QLXWeakObject.h"
 #import "QMacros.h"
-#import "NSObject+View.h"
+#import "NSObject+QLXView.h"
 
 @interface UIView()<UICollectionViewDelegate>
 

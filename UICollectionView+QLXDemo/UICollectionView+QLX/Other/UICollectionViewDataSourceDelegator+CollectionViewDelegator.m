@@ -9,7 +9,7 @@
 #import "UICollectionViewDataSourceDelegator+CollectionViewDelegator.h"
 #import "QLXWeakObject.h"
 #import "objc/runtime.h"
-#import "UIView+QLX_CellDelegate.h"
+#import "UIView+QLXCellDelegate.h"
 
 @interface UICollectionViewDataSourceDelegator()
 

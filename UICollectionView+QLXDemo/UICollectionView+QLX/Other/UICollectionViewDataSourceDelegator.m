@@ -9,7 +9,7 @@
 #import "UICollectionViewDataSourceDelegator.h"
 #import "UICollectionView+QLX.h"
 #import "UIView+QLX.h"
-#import "NSObject+View.h"
+#import "NSObject+QLXView.h"
 #import "QMacros.h"
 #import <objc/runtime.h>
 #import "UICollectionViewDataSourceDelegator+CollectionViewDelegator.h"

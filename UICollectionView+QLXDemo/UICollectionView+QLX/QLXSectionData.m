@@ -9,7 +9,7 @@
 #import "QLXSectionData.h"
 #import <UIKit/UIKit.h>
 #import "QMacros.h"
-#import "NSObject+View.h"
+#import "NSObject+QLXView.h"
 @implementation QLXSectionData
 
 @synthesize decorationData = _decorationData;

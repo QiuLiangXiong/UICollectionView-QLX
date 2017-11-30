@@ -7,9 +7,9 @@
 //
 
 #import "QLXWrapReuseCollectionReusableView.h"
-#import "NSObject+View.h"
+#import "NSObject+QLXView.h"
 #import "UIView+QLX.h"
-#import "UIView+QLX_CellDelegate.h"
+#import "UIView+QLXCellDelegate.h"
 
 
 @implementation QLXWrapReuseCollectionReusableView

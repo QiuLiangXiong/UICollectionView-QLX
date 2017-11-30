@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView(QLX_CellDelegate)
+@interface UIView(QLXCellDelegate)
 
 #pragma mark - cell callback
 

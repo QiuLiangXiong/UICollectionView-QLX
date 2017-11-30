@@ -8,8 +8,8 @@
 
 #import "QLXWrapReuseCollectionViewCell.h"
 #import "UIView+QLX.h"
-#import "NSObject+View.h"
-#import "UIView+QLX_CellDelegate.h"
+#import "NSObject+QLXView.h"
+#import "UIView+QLXCellDelegate.h"
 
 @implementation QLXWrapReuseCollectionViewCell
 

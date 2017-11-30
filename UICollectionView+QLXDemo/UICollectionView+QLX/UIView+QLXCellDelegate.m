@@ -6,10 +6,10 @@
 //  Copyright © 2016年 QLX. All rights reserved.
 //
 
-#import "UIView+QLX_CellDelegate.h"
+#import "UIView+QLXCellDelegate.h"
 #import <objc/runtime.h>
 
-@implementation UIView(QLX_CellDelegate)
+@implementation UIView(QLXCellDelegate)
 
 + (void)load{
     static dispatch_once_t onceToken;

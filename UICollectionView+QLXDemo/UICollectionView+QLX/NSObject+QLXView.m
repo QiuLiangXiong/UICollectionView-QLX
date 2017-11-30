@@ -6,12 +6,12 @@
 //  Copyright © 2016年 QLX. All rights reserved.
 //
 
-#import "NSObject+View.h"
+#import "NSObject+QLXView.h"
 #import <objc/runtime.h>
 #import "QMacros.h"
 
 
-@implementation NSObject(View)
+@implementation NSObject(QLXView)
 
 #pragma mark - public
 
