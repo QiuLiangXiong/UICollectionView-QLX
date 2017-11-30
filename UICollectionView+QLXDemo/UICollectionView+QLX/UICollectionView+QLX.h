@@ -12,6 +12,7 @@
 #import "UIView+QLX.h"
 #import "UIView+QLXCellDelegate.h"
 #import "NSMutableArray+QLX.h"
+#import "UICollectionViewCell+QLXEdit.h"
 
 
 @protocol QLXCollectionViewDataSource;

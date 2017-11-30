@@ -34,6 +34,8 @@
 		2D63EE041FCC10870038B2F1 /* QLXCollectionViewUpdateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63EE031FCC10870038B2F1 /* QLXCollectionViewUpdateUtil.m */; };
 		2D63EE071FCC20B00038B2F1 /* QLXSectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63EE061FCC20B00038B2F1 /* QLXSectionData.m */; };
 		2D63EE0A1FCD0DB60038B2F1 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63EE091FCD0DB60038B2F1 /* TestView.m */; };
+		2D63EE0F1FCFC6AF0038B2F1 /* UICollectionViewCell+QLXEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63EE0E1FCFC6AF0038B2F1 /* UICollectionViewCell+QLXEdit.m */; };
+		2D63EE131FCFD2860038B2F1 /* QLXPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63EE121FCFCDD40038B2F1 /* QLXPanGestureRecognizer.m */; };
 		2DC0FBA31FBEFD4B00D161EA /* NSMutableArray+QLX.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0FBA21FBEFD4B00D161EA /* NSMutableArray+QLX.m */; };
 		2DC0FBA61FC2D0B500D161EA /* UICollectionView+QLX_Sync.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0FBA51FC2D0B500D161EA /* UICollectionView+QLX_Sync.m */; };
 		2DC141F21D7E7F7F008CFC59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC141F11D7E7F7F008CFC59 /* main.m */; };
@@ -130,6 +132,10 @@
 		2D63EE061FCC20B00038B2F1 /* QLXSectionData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLXSectionData.m; sourceTree = "<group>"; };
 		2D63EE081FCD0DB60038B2F1 /* TestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
 		2D63EE091FCD0DB60038B2F1 /* TestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
+		2D63EE0D1FCFC6AF0038B2F1 /* UICollectionViewCell+QLXEdit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+QLXEdit.h"; sourceTree = "<group>"; };
+		2D63EE0E1FCFC6AF0038B2F1 /* UICollectionViewCell+QLXEdit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+QLXEdit.m"; sourceTree = "<group>"; };
+		2D63EE111FCFCDD30038B2F1 /* QLXPanGestureRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLXPanGestureRecognizer.h; sourceTree = "<group>"; };
+		2D63EE121FCFCDD40038B2F1 /* QLXPanGestureRecognizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLXPanGestureRecognizer.m; sourceTree = "<group>"; };
 		2DC0FBA11FBEFD4B00D161EA /* NSMutableArray+QLX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+QLX.h"; sourceTree = "<group>"; };
 		2DC0FBA21FBEFD4B00D161EA /* NSMutableArray+QLX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QLX.m"; sourceTree = "<group>"; };
 		2DC0FBA41FC2D0B500D161EA /* UICollectionView+QLX_Sync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+QLX_Sync.h"; sourceTree = "<group>"; };
@@ -217,6 +223,8 @@
 				2D1F6CD81D82AC4800ED4194 /* NSObject+QLXView.m */,
 				2DC0FBA11FBEFD4B00D161EA /* NSMutableArray+QLX.h */,
 				2DC0FBA21FBEFD4B00D161EA /* NSMutableArray+QLX.m */,
+				2D63EE0D1FCFC6AF0038B2F1 /* UICollectionViewCell+QLXEdit.h */,
+				2D63EE0E1FCFC6AF0038B2F1 /* UICollectionViewCell+QLXEdit.m */,
 				2D1F6CB61D82A11600ED4194 /* Other */,
 			);
 			path = "UICollectionView+QLX";
@@ -225,6 +233,7 @@
 		2D1F6CB61D82A11600ED4194 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				2D63EE101FCFCA170038B2F1 /* edit */,
 				2D63EDF81FCBB4ED0038B2F1 /* sync */,
 				2D4270F21FAEE1A300BC1969 /* wrap */,
 				2D1F6CB71D82A11600ED4194 /* QLXWeakObject.h */,
@@ -318,6 +327,15 @@
 				2D63EE031FCC10870038B2F1 /* QLXCollectionViewUpdateUtil.m */,
 			);
 			path = sync;
+			sourceTree = "<group>";
+		};
+		2D63EE101FCFCA170038B2F1 /* edit */ = {
+			isa = PBXGroup;
+			children = (
+				2D63EE111FCFCDD30038B2F1 /* QLXPanGestureRecognizer.h */,
+				2D63EE121FCFCDD40038B2F1 /* QLXPanGestureRecognizer.m */,
+			);
+			path = edit;
 			sourceTree = "<group>";
 		};
 		2DC141E41D7E7F7F008CFC59 = {
@@ -575,6 +593,8 @@
 				2DDC18511D81B58500C589C1 /* View+MASAdditions.m in Sources */,
 				2DC141F81D7E7F7F008CFC59 /* ViewController.m in Sources */,
 				2D2C6C7B1D810BC600DE7B55 /* ACollectionViewCell.m in Sources */,
+				2D63EE0F1FCFC6AF0038B2F1 /* UICollectionViewCell+QLXEdit.m in Sources */,
+				2D63EE131FCFD2860038B2F1 /* QLXPanGestureRecognizer.m in Sources */,
 				2D63EE041FCC10870038B2F1 /* QLXCollectionViewUpdateUtil.m in Sources */,
 				2D1F6CD91D82AC4800ED4194 /* NSObject+QLXView.m in Sources */,
 				2DDC184F1D81B58500C589C1 /* NSArray+MASAdditions.m in Sources */,

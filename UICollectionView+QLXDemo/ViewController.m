@@ -45,9 +45,17 @@
     headerView.qlx_secionInset = UIEdgeInsetsMake(10, 10, 10, 10);
 
     NSMutableArray * cellDataList = [NSMutableArray new];
-    TestCollectionViewCell * cell = [TestCollectionViewCell new];
-    [cell setTitle:@"我是一个Cell类型的View"];
-    [cellDataList addObject:cell];
+//    TestCollectionViewCell * cell = [TestCollectionViewCell new];
+//    [cell setTitle:@"我是一个Cell类型的View"];
+    
+    NSObject * cellData = [NSObject new];
+    cellData.qlx_reuseIdentifierClass = [TestCollectionViewCell class];
+    
+    [cellDataList addObject:cellData];
+      [cellDataList addObject:cellData];
+      [cellDataList addObject:cellData];
+      [cellDataList addObject:cellData];
+      [cellDataList addObject:cellData];
     
     
     QLXSectionData * sectionData = [QLXSectionData new];

@@ -1,0 +1,25 @@
+//
+//  UICollectionViewCell+QLXEdit.h
+//  UICollectionView+QLXDemo
+//  和UITableViewCell 侧滑 编辑功能一致
+//
+//  Created by QLX on 2017/11/30.
+//  Copyright © 2017年 QLX. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface UICollectionViewCell(QLXEdit)
+
+/*左侧滑出来的视图（左边编辑视图）*/
+@property(nonatomic , strong,nullable) UIView * qlx_leftEidtView;
+/*右侧滑出来的视图（右边编辑视图）*/
+@property(nonatomic , strong,nullable) UIView * qlx_rightEidtView;
+
+/**
+ 结束编辑状态
+ param：animated  是否带动画
+ */
+- (void)qlx_finishEditWithAnimated:(BOOL)animated;
+
+@end

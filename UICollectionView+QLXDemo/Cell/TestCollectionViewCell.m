@@ -23,10 +23,44 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        UIView * rightView = [UIView new];
+//        rightView.frame = CGRectMake(0, 0, 100, 60);
+        rightView.backgroundColor =[UIColor  redColor];
+        
+        UIButton * deleteBtn = [[UIButton alloc] init];
+        [rightView addSubview:deleteBtn];
+        [deleteBtn addTarget:self action:@selector(onRemoveTest) forControlEvents:(UIControlEventTouchUpInside)];
+        [deleteBtn setTitle:@"删除" forState:UIControlStateNormal];
+        [deleteBtn setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+        [deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(rightView);
+            make.left.equalTo(rightView).offset(25);
+            make.right.equalTo(rightView).offset(-25);
+        }];
+        
+        self.qlx_rightEidtView = rightView;
+        
+        
+        UIView * leftView = [UIView new];
+        leftView.frame = CGRectMake(0, 0, 100, 60);
+        leftView.backgroundColor =[UIColor  blueColor];
+        
+        UIButton * addBtn = [[UIButton alloc] init];
+        [leftView addSubview:addBtn];
+        [addBtn setTitle:@"新增" forState:UIControlStateNormal];
+        [addBtn setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+        [addBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(leftView);
+        }];
+        
+      //  self.qlx_leftEidtView = leftView;
+        
+        
+        
         [self titleLbl];
         [self subTitleLbl];
-        self.backgroundColor = [UIColor grayColor];
-        self.subTitleLbl.text = @"SDK解放路大煞风景说多累快放假老实点受打击了开发但是就离开手机端发说多累会计法说多累会计法说的放假了可适当方式豆腐";
+        self.contentView.backgroundColor = [UIColor grayColor];
+        self.subTitleLbl.text = @"我是一个Cell类型的View";
         
         UIGestureRecognizer * tapGS = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDidSelected)];
         
@@ -34,6 +68,8 @@
         self.subTitleLbl.userInteractionEnabled = true;
         
     
+        
+        
         
 //        static int i = 0;
 //        i++;
@@ -43,7 +79,10 @@
     return self;
 }
 
-
+- (void)onRemoveTest{
+    NSLog(@"删除");
+    [self qlx_finishEditWithAnimated:true];
+}
 
 - (void)onDidSelected{
     
