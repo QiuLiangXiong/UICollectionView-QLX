@@ -20,7 +20,19 @@ _在podfile文件中加入_ `pod 'UICollectionView-QLX', '~> 2.0.0'` _或_ `pod 
 - **安全**: 当数据源数组和CollectionView 对应Cell不同步时，框架会自动返回默认空Cell，并且高度为0.01， 以保证返回值安全，避免崩溃问题。
 - **轻量**: 该框架只有少量个文件 (包括.h文件)。
 
+
+
 使用方法
+==============
+### Display animated image
+```objc
+// File: ani@3x.gif
+UIImage *image = [YYImage imageNamed:@"ani.gif"];
+UIImageView *imageView = [[YYAnimatedImageView alloc] initWithImage:image];
+[self.view addSubview:imageView];
+```
+
+安装
 ==============
 ### CocoaPods
 
