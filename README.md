@@ -26,10 +26,31 @@ _在podfile文件中加入_ `pod 'UICollectionView-QLX', '~> 2.0.0'` _或_ `pod 
 ==============
 ### Display animated image
 ```objc
-// File: ani@3x.gif
-UIImage *image = [YYImage imageNamed:@"ani.gif"];
-UIImageView *imageView = [[YYAnimatedImageView alloc] initWithImage:image];
-[self.view addSubview:imageView];
+   
+  创建UICollectionView
+    {
+       UICollectionView * collectionView = [UICollectionView qlx_createForFlowLayout];
+        collectionView.frame = self.view.bounds;
+        collectionView.delegate = self;
+        collectionView.qlx_dataSource = self;
+        [self.view addSubview:collectionView];
+    }
+    
+    
+//实现数据源代理
+#pragma mark - QLXCollectionViewDataSource
+- (NSArray<QLXSectionData *> *)qlx_sectionDataListWithCollectionView:(UICollectionView *)collectionView{
+    return self.dataList;
+}
+//提供数据
+  QLXSectionData * sectionData = [QLXSectionData new];
+    sectionData.cellDataList = cellDataList;
+    sectionData.headerData = headerView;//支持view 也支持data
+    sectionData.decorationData = [ADecroationView class];
+    sectionData.footerData = [ACollectionViewFooterData new];
+    self.dataList = @[sectionData];
+
+
 ```
 
 安装
