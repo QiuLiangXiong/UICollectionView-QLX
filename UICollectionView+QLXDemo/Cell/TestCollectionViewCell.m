@@ -53,7 +53,7 @@
             make.center.equalTo(leftView);
         }];
         
-      //  self.qlx_leftEidtView = leftView;
+        self.qlx_leftEidtView = leftView;
         
         
         
