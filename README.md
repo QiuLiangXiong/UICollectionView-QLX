@@ -19,12 +19,13 @@ _在podfile文件中加入_ `pod 'UICollectionView-QLX', '~> 2.0.0'` _或_ `pod 
 - **灵活**: 支持view实例作为数据源直接当做cell使用，好比是UIScroller里面添加了一个View，因此， 可以提高因为cell复用过程带来的性能消耗，一般用于不复用的Cell，可以用view直接作为数据源。
 - **安全**: 当数据源数组和CollectionView 对应Cell不同步时，框架会自动返回默认空Cell，并且高度为0.01， 以保证返回值安全，避免崩溃问题。
 - **轻量**: 该框架只有少量个文件 (包括.h文件)。
+- **支持编辑模式**: 功能和UITableViewCell的 侧滑编辑一致，不过更好用，只需设置Cell 的rightEditView 或者leftEiditView 即可侧滑。
 
 
 
 使用方法
 ==============
-### Display animated image
+
 ```objc
    
   创建UICollectionView
