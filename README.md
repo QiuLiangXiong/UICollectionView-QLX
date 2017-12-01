@@ -51,7 +51,7 @@ _在podfile文件中加入_ `pod 'UICollectionView-QLX', '~> 2.0.0'` _或_ `pod 
     sectionData.footerData = [ACollectionViewFooterData new];
     self.dataList = @[sectionData];
 
-
+//更多使用方法下载Demo学习...
 ```
 
 安装
