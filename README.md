@@ -20,7 +20,7 @@ _在podfile文件中加入_ `pod 'UICollectionView-QLX', '~> 2.0.0'` _或_ `pod 
 - **安全**: 当数据源数组和CollectionView 对应Cell不同步时，框架会自动返回默认空Cell，并且高度为0.01， 以保证返回值安全，避免崩溃问题。
 - **轻量**: 该框架只有少量个文件 (包括.h文件)。
 - **支持编辑模式**: 功能和UITableViewCell的 侧滑编辑一致，不过更好用，只需设置Cell 的rightEditView 或者leftEiditView 即可侧滑。
-
+- **支持拖拽重排**: 一行代码实现重排，只需设置data 的resortEnable 为true即可自动拖拽重排。
 
 
 使用方法
