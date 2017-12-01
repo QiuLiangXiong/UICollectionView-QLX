@@ -26,6 +26,7 @@
 		2D4270F11FAEE14100BC1969 /* QLXWrapViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4270F01FAEE14100BC1969 /* QLXWrapViewData.m */; };
 		2D4270F51FAEED7700BC1969 /* QLXWarpCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4270F41FAEED7700BC1969 /* QLXWarpCollectionReusableView.m */; };
 		2D4270F81FAF070300BC1969 /* TestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4270F71FAF070300BC1969 /* TestCollectionViewCell.m */; };
+		2D4E2BD51FD168B300AA4B53 /* UICollectionView+QLXResort.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4E2BD41FD168B300AA4B53 /* UICollectionView+QLXResort.m */; };
 		2D60C69B1FB2D64E00F1523E /* ViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D60C69A1FB2D64E00F1523E /* ViewHeader.m */; };
 		2D60C69E1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D60C69D1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.m */; };
 		2D60C6A11FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D60C6A01FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m */; };
@@ -116,6 +117,8 @@
 		2D4270F41FAEED7700BC1969 /* QLXWarpCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLXWarpCollectionReusableView.m; sourceTree = "<group>"; };
 		2D4270F61FAF070300BC1969 /* TestCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewCell.h; sourceTree = "<group>"; };
 		2D4270F71FAF070300BC1969 /* TestCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewCell.m; sourceTree = "<group>"; };
+		2D4E2BD31FD168B300AA4B53 /* UICollectionView+QLXResort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+QLXResort.h"; sourceTree = "<group>"; };
+		2D4E2BD41FD168B300AA4B53 /* UICollectionView+QLXResort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+QLXResort.m"; sourceTree = "<group>"; };
 		2D60C6991FB2D64E00F1523E /* ViewHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewHeader.h; sourceTree = "<group>"; };
 		2D60C69A1FB2D64E00F1523E /* ViewHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewHeader.m; sourceTree = "<group>"; };
 		2D60C69C1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLXWrapReuseCollectionViewCell.h; sourceTree = "<group>"; };
@@ -211,16 +214,16 @@
 		2D1F6CB31D82A11600ED4194 /* UICollectionView+QLX */ = {
 			isa = PBXGroup;
 			children = (
-				2D63EE051FCC20B00038B2F1 /* QLXSectionData.h */,
-				2D63EE061FCC20B00038B2F1 /* QLXSectionData.m */,
 				2D1F6CE01D82AC6E00ED4194 /* UICollectionView+QLX.h */,
 				2D1F6CE11D82AC6E00ED4194 /* UICollectionView+QLX.m */,
-				2D1F6CDD1D82AC6700ED4194 /* UIView+QLXCellDelegate.h */,
-				2D1F6CDE1D82AC6700ED4194 /* UIView+QLXCellDelegate.m */,
-				2D1F6CDA1D82AC6000ED4194 /* UIView+QLX.h */,
-				2D1F6CDB1D82AC6000ED4194 /* UIView+QLX.m */,
+				2D63EE051FCC20B00038B2F1 /* QLXSectionData.h */,
+				2D63EE061FCC20B00038B2F1 /* QLXSectionData.m */,
 				2D1F6CD71D82AC4800ED4194 /* NSObject+QLXView.h */,
 				2D1F6CD81D82AC4800ED4194 /* NSObject+QLXView.m */,
+				2D1F6CDA1D82AC6000ED4194 /* UIView+QLX.h */,
+				2D1F6CDB1D82AC6000ED4194 /* UIView+QLX.m */,
+				2D1F6CDD1D82AC6700ED4194 /* UIView+QLXCellDelegate.h */,
+				2D1F6CDE1D82AC6700ED4194 /* UIView+QLXCellDelegate.m */,
 				2DC0FBA11FBEFD4B00D161EA /* NSMutableArray+QLX.h */,
 				2DC0FBA21FBEFD4B00D161EA /* NSMutableArray+QLX.m */,
 				2D63EE0D1FCFC6AF0038B2F1 /* UICollectionViewCell+QLXEdit.h */,
@@ -233,6 +236,7 @@
 		2D1F6CB61D82A11600ED4194 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				2D4E2BD21FD163A200AA4B53 /* resort */,
 				2D63EE101FCFCA170038B2F1 /* edit */,
 				2D63EDF81FCBB4ED0038B2F1 /* sync */,
 				2D4270F21FAEE1A300BC1969 /* wrap */,
@@ -312,6 +316,15 @@
 				2D60C6A01FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m */,
 			);
 			path = wrap;
+			sourceTree = "<group>";
+		};
+		2D4E2BD21FD163A200AA4B53 /* resort */ = {
+			isa = PBXGroup;
+			children = (
+				2D4E2BD31FD168B300AA4B53 /* UICollectionView+QLXResort.h */,
+				2D4E2BD41FD168B300AA4B53 /* UICollectionView+QLXResort.m */,
+			);
+			path = resort;
 			sourceTree = "<group>";
 		};
 		2D63EDF81FCBB4ED0038B2F1 /* sync */ = {
@@ -605,6 +618,7 @@
 				2DC141F51D7E7F7F008CFC59 /* AppDelegate.m in Sources */,
 				2DDC18521D81B58500C589C1 /* ViewController+MASAdditions.m in Sources */,
 				2D60C6A11FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m in Sources */,
+				2D4E2BD51FD168B300AA4B53 /* UICollectionView+QLXResort.m in Sources */,
 				2DDC184E1D81B58500C589C1 /* MASViewConstraint.m in Sources */,
 				2DDC184B1D81B58500C589C1 /* MASConstraintMaker.m in Sources */,
 				2DC141F21D7E7F7F008CFC59 /* main.m in Sources */,

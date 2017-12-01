@@ -22,18 +22,19 @@
  param：animated  是否带动画
  */
 - (void)qlx_finishEditWithAnimated:(BOOL)animated;
+
 /**
  是否处于编辑状态
  */
 - (BOOL)qlx_isEditing;
 
 /**
- 打开左边编辑视图（手动打开，一般用不到）
+ 打开左边编辑视图（这种手动打开的情况，一般用不到）
  */
 - (void)qlx_openLeftEditView;
 
 /**
-  打开左边编辑视图（手动打开，一般用不到）
+  打开右边编辑视图（这种手动打开的情况，一般用不到）
  */
 - (void)qlx_openRightEditView;
 

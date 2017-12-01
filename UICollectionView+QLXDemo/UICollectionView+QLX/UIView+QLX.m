@@ -11,7 +11,6 @@
 #import "QLXWeakObject.h"
 #import "QMacros.h"
 #import "NSObject+QLXView.h"
-
 @interface UIView()<UICollectionViewDelegate>
 
 @end

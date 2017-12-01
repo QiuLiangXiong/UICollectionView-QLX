@@ -51,6 +51,8 @@
     NSObject * cellData = [NSObject new];
     cellData.qlx_reuseIdentifierClass = [TestCollectionViewCell class];
     
+    cellData.qlx_resortEnable = true;
+    
     [cellDataList addObject:cellData];
       [cellDataList addObject:cellData];
       [cellDataList addObject:cellData];
@@ -119,6 +121,9 @@
     }
 }
 - (void)removeTest{
+    
+    
+
     QLXSectionData * sectionData = self.dataList.firstObject;
     NSMutableArray * cellDataList = (NSMutableArray *)sectionData.cellDataList;
     if ([cellDataList isKindOfClass:[NSMutableArray class]]) {

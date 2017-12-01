@@ -92,4 +92,13 @@
     objc_setAssociatedObject(self, @selector(qlx_minimumLineSpacing), spacing, OBJC_ASSOCIATION_RETAIN);
 }
 
+- (BOOL)qlx_resortEnable{
+     NSNumber * resortEnable = objc_getAssociatedObject(self, @selector(qlx_resortEnable));
+    return [resortEnable boolValue];
+}
+
+- (void)setQlx_resortEnable:(BOOL)qlx_resortEnable{
+     objc_setAssociatedObject(self, @selector(qlx_resortEnable), @(qlx_resortEnable), OBJC_ASSOCIATION_RETAIN);
+}
+
 @end

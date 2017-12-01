@@ -17,6 +17,7 @@
 #import "QLXWrapReuseCollectionViewCell.h"
 #import "QLXWrapReuseCollectionReusableView.h"
 #import "QLXSectionData.h"
+#import "UICollectionView+QLXResort.h"
 
 
 static NSString * const DefaultCellIdentifier = @"UICollectionViewCell";
@@ -83,6 +84,23 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
 }
 
 
+- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(9_0){
+    return  [self getCellDataWithIndexPath:indexPath].qlx_resortEnable;
+}
+- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath NS_AVAILABLE_IOS(9_0){
+    NSObject * sourceData = [self getCellDataWithIndexPath:sourceIndexPath];
+    NSObject * destinationIndexPathData = [self getCellDataWithIndexPath:destinationIndexPath];
+    
+    if(sourceData && destinationIndexPathData){
+        QLXSectionData * sSeciontData = [self getSectionDataWithSection:sourceIndexPath.section];
+        QLXSectionData * dSeciontData = [self getSectionDataWithSection:destinationIndexPath.section];
+        [sSeciontData.cellDataList replaceObjectAtIndex:sourceIndexPath.row withObject:destinationIndexPathData];
+        [dSeciontData.cellDataList replaceObjectAtIndex:destinationIndexPath.row withObject:sourceData];
+        
+    }
+    
+    
+}
 
 #pragma mark UICollectionViewDelegateFlowLayout
 
@@ -406,15 +424,18 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
 - (NSObject *)getCellDataWithIndexPath:(NSIndexPath *)indexPath{
     QLXSectionData * sectionData = [self getSectionDataWithSection:indexPath.section];
     
+    NSObject * cellData = nil;
     if (sectionData.cellDataList && indexPath.row < sectionData.cellDataList.count) {
         
-        NSObject * cellData = [sectionData.cellDataList objectAtIndex:indexPath.row];
+         cellData = [sectionData.cellDataList objectAtIndex:indexPath.row];
         if ([cellData isKindOfClass:[UIView class]]) {
-            return [self warpDataWithView:(UIView *)cellData isCell:true];
+            cellData = [self warpDataWithView:(UIView *)cellData isCell:true];
         }
-        return cellData;
+        if (cellData.qlx_resortEnable) {
+            [self.collectionView qlx_initConfigForResort];
+        }
     }
-    return nil;
+    return cellData;
 }
 
 
