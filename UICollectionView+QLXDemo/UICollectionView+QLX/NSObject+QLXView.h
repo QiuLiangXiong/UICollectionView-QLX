@@ -18,13 +18,16 @@
  */
 @property(nonatomic , assign ,nonnull) Class  qlx_reuseIdentifierClass;
 
+
+/**
+ * 对应绑定视图的缓存宽度   如果手动设置，就以这个宽高为准
+ */
 @property (nonatomic, assign) CGFloat qlx_viewHeight;
 @property (nonatomic, assign) CGFloat qlx_viewWidth;
 
 /**
  * 仅对 header footer data  生效
  */
-
 @property(nonatomic , assign) UIEdgeInsets qlx_secionInset;
 @property(nonatomic , assign) CGFloat qlx_minimumLineSpacing;
 @property(nonatomic , assign) CGFloat qlx_minimumInteritemSpacing;

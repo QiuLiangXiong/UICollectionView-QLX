@@ -147,6 +147,16 @@
 
 }
 
+- (BOOL)qlx_isEditing{
+    return self.contentView.frame.origin.x != 0 ;
+}
+
+- (void)qlx_openRightEditView{
+    [self scrollToRightView];
+}
+- (void)qlx_openLeftEditView{
+    [self scrollToLeftView];
+}
 
 
 #pragma mark - getter/setter

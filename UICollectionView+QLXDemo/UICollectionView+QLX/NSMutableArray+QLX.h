@@ -10,8 +10,11 @@
 
 @interface NSMutableArray(QLX)
 
+
+// 自动同步到CollectionView
 - (void)qlx_syncToViewWithAnimated:(BOOL)animated;
 
+// 自动同步到CollectionView
 - (void)qlx_addObject:(id)anObject;
 
 - (void)qlx_addObject:(id)anObject syncToView:(BOOL)sync animated:(BOOL)animated;

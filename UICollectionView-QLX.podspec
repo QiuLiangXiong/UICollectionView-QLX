@@ -2,8 +2,7 @@ Pod::Spec.new do |s|
 s.name = 'UICollectionView-QLX'
 s.version = '2.0.0'
 s.license = 'MIT'
-s.summary = '数据即视图 映射'
-s.description  = '基于UICollectionView的扩展，更好用的UICollectionView'
+s.summary = '一款基于UICollectionView扩展，告别繁琐的代理，一个数组就能搞定数据源，数组自动同步视图， 更好用的UICollectionView'
 s.homepage = 'https://github.com/QiuLiangXiong/UICollectionView-QLX'
 s.authors = { 'QiuLiangXiong' => '820686089@qq.com' }
 s.source = { :git => 'https://github.com/QiuLiangXiong/UICollectionView-QLX.git', :tag => "2.0.0" }
@@ -14,3 +13,6 @@ s.requires_arc = true
 s.xcconfig = { "OTHER_LINK_FLAG" => '$(inherited) -ObjC'}
 s.framework  = "UIKit"
 end
+
+
+

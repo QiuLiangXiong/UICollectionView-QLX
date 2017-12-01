@@ -23,7 +23,7 @@ static NSString * const DefaultCellIdentifier = @"UICollectionViewCell";
 static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableView";
 
 
-@interface UICollectionViewDataSourceDelegator()<UICollectionViewDelegateFlowLayout>
+@interface UICollectionViewDataSourceDelegator()<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource>
 
 @property(nonatomic , strong) NSArray * sectionDataList;
 @property (nonatomic, strong) NSMutableDictionary * cacheCellDic;
@@ -48,6 +48,9 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return self.sectionDataList.count;
 }
+
+
+
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     NSObject * cellData = [self getCellDataWithIndexPath:indexPath];

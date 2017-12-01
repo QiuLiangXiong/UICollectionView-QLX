@@ -18,8 +18,23 @@
 
 /**
  结束编辑状态
+ note:一般用于操作了编辑按钮，手动调用该方法来结束编辑状态
  param：animated  是否带动画
  */
 - (void)qlx_finishEditWithAnimated:(BOOL)animated;
+/**
+ 是否处于编辑状态
+ */
+- (BOOL)qlx_isEditing;
+
+/**
+ 打开左边编辑视图（手动打开，一般用不到）
+ */
+- (void)qlx_openLeftEditView;
+
+/**
+  打开左边编辑视图（手动打开，一般用不到）
+ */
+- (void)qlx_openRightEditView;
 
 @end
