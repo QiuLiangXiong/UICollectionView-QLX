@@ -6,7 +6,7 @@
 ![CocoaPods Version](https://img.shields.io/badge/pod-v1.0.0-brightgreen.svg)
 
 本库已经配置到cocoapods。
-_在podfile文件中加入_ `pod 'UICollectionView-QLX', '~> 2.0.0'` _或_ `pod "UICollectionView-QLX"`
+_在podfile文件中加入_ `pod 'UICollectionView-QLX', '~> 2.3.0'` _或_ `pod "UICollectionView-QLX"`
 <br />_使用_ `pod install`_即可一键引入_
 # UICollectionView-QLX
 一款基于UICollectionView扩展，告别繁琐的代理，一个数组就能搞定数据源，数组自动同步视图， 更好用的UICollectionView。
