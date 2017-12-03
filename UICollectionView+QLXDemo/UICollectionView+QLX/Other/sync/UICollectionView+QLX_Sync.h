@@ -18,6 +18,6 @@
 /**
  数据同步到视图
  */
-+ (void)qlx_syncToViewWithAnimated:(BOOL)animated  completed:(void (^)())completed;
++ (void)qlx_syncToViewWithAnimated:(BOOL)animated  completed:(void (^)(void))completed;
 
 @end

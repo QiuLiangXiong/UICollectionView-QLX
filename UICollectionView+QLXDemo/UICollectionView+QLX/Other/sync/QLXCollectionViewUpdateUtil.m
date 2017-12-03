@@ -11,6 +11,7 @@
 #import "QLXDataSource.h"
 #import "QLXSectionData.h"
 #import "NSObject+QLXView.h"
+#import "UICollectoinView+QLXTransitonAnimation.h"
 
 
 @interface QLXCollectionViewDiffResult : NSObject
@@ -76,7 +77,7 @@
         return;
     }
     
-    void (^updates)() = [^{
+    void (^updates)(void) = [^{
         [QLXCollectionViewUpdateUtil applyUpdate:diffResult toCollectionView:collectionView];
     } copy];
     
@@ -86,13 +87,10 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         // 主线程更新
         if (animated) {
-            [UIView animateWithDuration:0.3 animations:^{
-                [collectionView performBatchUpdates:updates completion:completion];
-            }];
+            [collectionView qlx_performBatchUpdates:updates withAnimated:QLXTransitonAnimationTypeDefault completion:completion];
+            
         }else {
-            [UIView performWithoutAnimation:^{
-                [collectionView performBatchUpdates:updates completion:completion];
-            }];
+            [collectionView qlx_performBatchUpdates:updates withAnimated:QLXTransitonAnimationTypeNone completion:completion];
         }
         
     });

@@ -93,11 +93,6 @@
     NSMutableArray * cellDataList = sectionData.cellDataList;
     if ([cellDataList isKindOfClass:[NSMutableArray class]]) {
         
-        NSMutableArray * dd = nil;
-        NSMutableArray * dd2 = [NSMutableArray new];
-        if (dd.count == dd2.count) {
-            NSLog(@"ddd");
-        }
         
         
         int rand =random()%2;

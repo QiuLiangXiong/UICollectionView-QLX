@@ -34,9 +34,8 @@
 /**
  * 是否允许 长按重新排序（就是UICollectionView的拖拽排序）
  * 默认为false
- * ios9及以上可用
  */
-@property(nonatomic , assign) BOOL qlx_resortEnable;
+@property(nonatomic , assign) BOOL qlx_resortEnable NS_AVAILABLE_IOS(9_0);
 
 /**
  * view的高度或者宽度变化了 请用这个函数调用下

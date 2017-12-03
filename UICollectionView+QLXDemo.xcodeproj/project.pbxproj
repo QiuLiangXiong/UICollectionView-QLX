@@ -26,6 +26,7 @@
 		2D4270F11FAEE14100BC1969 /* QLXWrapViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4270F01FAEE14100BC1969 /* QLXWrapViewData.m */; };
 		2D4270F51FAEED7700BC1969 /* QLXWarpCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4270F41FAEED7700BC1969 /* QLXWarpCollectionReusableView.m */; };
 		2D4270F81FAF070300BC1969 /* TestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4270F71FAF070300BC1969 /* TestCollectionViewCell.m */; };
+		2D4759711FD2B326000F82EE /* UICollectoinView+QLXTransitonAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4759701FD2B326000F82EE /* UICollectoinView+QLXTransitonAnimation.m */; };
 		2D4E2BD51FD168B300AA4B53 /* UICollectionView+QLXResort.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4E2BD41FD168B300AA4B53 /* UICollectionView+QLXResort.m */; };
 		2D60C69B1FB2D64E00F1523E /* ViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D60C69A1FB2D64E00F1523E /* ViewHeader.m */; };
 		2D60C69E1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D60C69D1FB307E700F1523E /* QLXWrapReuseCollectionViewCell.m */; };
@@ -117,6 +118,8 @@
 		2D4270F41FAEED7700BC1969 /* QLXWarpCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLXWarpCollectionReusableView.m; sourceTree = "<group>"; };
 		2D4270F61FAF070300BC1969 /* TestCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewCell.h; sourceTree = "<group>"; };
 		2D4270F71FAF070300BC1969 /* TestCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewCell.m; sourceTree = "<group>"; };
+		2D47596F1FD2B326000F82EE /* UICollectoinView+QLXTransitonAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectoinView+QLXTransitonAnimation.h"; sourceTree = "<group>"; };
+		2D4759701FD2B326000F82EE /* UICollectoinView+QLXTransitonAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectoinView+QLXTransitonAnimation.m"; sourceTree = "<group>"; };
 		2D4E2BD31FD168B300AA4B53 /* UICollectionView+QLXResort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+QLXResort.h"; sourceTree = "<group>"; };
 		2D4E2BD41FD168B300AA4B53 /* UICollectionView+QLXResort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+QLXResort.m"; sourceTree = "<group>"; };
 		2D60C6991FB2D64E00F1523E /* ViewHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewHeader.h; sourceTree = "<group>"; };
@@ -236,6 +239,7 @@
 		2D1F6CB61D82A11600ED4194 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				2D47596E1FD2B2BC000F82EE /* transition */,
 				2D4E2BD21FD163A200AA4B53 /* resort */,
 				2D63EE101FCFCA170038B2F1 /* edit */,
 				2D63EDF81FCBB4ED0038B2F1 /* sync */,
@@ -316,6 +320,15 @@
 				2D60C6A01FB33B1200F1523E /* QLXWrapReuseCollectionReusableView.m */,
 			);
 			path = wrap;
+			sourceTree = "<group>";
+		};
+		2D47596E1FD2B2BC000F82EE /* transition */ = {
+			isa = PBXGroup;
+			children = (
+				2D47596F1FD2B326000F82EE /* UICollectoinView+QLXTransitonAnimation.h */,
+				2D4759701FD2B326000F82EE /* UICollectoinView+QLXTransitonAnimation.m */,
+			);
+			path = transition;
 			sourceTree = "<group>";
 		};
 		2D4E2BD21FD163A200AA4B53 /* resort */ = {
@@ -624,6 +637,7 @@
 				2DC141F21D7E7F7F008CFC59 /* main.m in Sources */,
 				2D4270F81FAF070300BC1969 /* TestCollectionViewCell.m in Sources */,
 				2D1F6CC71D82A11600ED4194 /* QLXWeakObject.m in Sources */,
+				2D4759711FD2B326000F82EE /* UICollectoinView+QLXTransitonAnimation.m in Sources */,
 				2DC0FBA61FC2D0B500D161EA /* UICollectionView+QLX_Sync.m in Sources */,
 				2DDC184C1D81B58500C589C1 /* MASLayoutConstraint.m in Sources */,
 				2D1F6CDC1D82AC6000ED4194 /* UIView+QLX.m in Sources */,

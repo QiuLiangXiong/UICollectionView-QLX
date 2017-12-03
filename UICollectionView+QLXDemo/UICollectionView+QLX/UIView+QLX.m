@@ -89,12 +89,18 @@
                 if (indexPath && indexPath.row != NSNotFound &&indexPath.section != NSNotFound) {
                     if (animated) {
                         [UIView animateWithDuration:0.2 animations:^{
-                           [self.qlx_collectionView reloadItemsAtIndexPaths:@[indexPath]];
+
+                            [self.qlx_collectionView performBatchUpdates:^{
+                                [self.qlx_collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                            } completion:nil];
                         
                         }];
+                        
+                       
+                        
                     }else{
                         [UIView performWithoutAnimation:^{
-                             [self.qlx_collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                            
                         }];
                     }
                 }else {

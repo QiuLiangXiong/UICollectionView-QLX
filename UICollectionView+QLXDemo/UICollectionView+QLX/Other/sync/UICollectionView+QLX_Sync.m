@@ -40,7 +40,7 @@
     });
 }
 
-+ (void)qlx_syncToViewWithAnimated:(BOOL)animated  completed:(void (^)())completed{
++ (void)qlx_syncToViewWithAnimated:(BOOL)animated  completed:(void (^)(void))completed{
     dispatch_queue_t queue = [[self class] getSyncToViewQueue];
     __weak typeof(&*self) weakSelf = self;
     dispatch_async(queue, ^{
@@ -105,7 +105,7 @@
 }
 
 
-+ (void)_syncToViewWithAnimated:(BOOL)animated  completed:(void (^)())completed{
++ (void)_syncToViewWithAnimated:(BOOL)animated  completed:(void (^)(void))completed{
     
     NSMutableArray * collectionViews = [self qlx_getAllCollectionViewInsatnces];
     for (QLXWeakObject * weakObject in collectionViews) {

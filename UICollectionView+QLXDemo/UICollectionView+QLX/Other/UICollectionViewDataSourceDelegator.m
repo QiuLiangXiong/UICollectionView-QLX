@@ -89,7 +89,16 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
 }
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath NS_AVAILABLE_IOS(9_0){
     NSObject * sourceData = [self getCellDataWithIndexPath:sourceIndexPath];
+    
+    if([sourceData isKindOfClass:[QLXWrapViewData class]]){
+        sourceData = ((QLXWrapViewData *)sourceData).rootView;
+    }
+    
     NSObject * destinationIndexPathData = [self getCellDataWithIndexPath:destinationIndexPath];
+    
+    if([destinationIndexPathData isKindOfClass:[QLXWrapViewData class]]){
+        destinationIndexPathData = ((QLXWrapViewData *)destinationIndexPathData).rootView;
+    }
     
     if(sourceData && destinationIndexPathData){
         QLXSectionData * sSeciontData = [self getSectionDataWithSection:sourceIndexPath.section];
