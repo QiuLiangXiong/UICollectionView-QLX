@@ -27,8 +27,9 @@ _在podfile文件中加入_ `pod 'UICollectionView-QLX', '~> 2.5.0'` _或_ `pod 
 ==============
 
 ```objc
- #import "UICollectionView+QLX.h" //包含此头文件
-  创建UICollectionView
+#import "UICollectionView+QLX.h" //包含此头文件
+
+//  创建UICollectionView
     {
        UICollectionView * collectionView = [UICollectionView qlx_createForFlowLayout];
         collectionView.frame = self.view.bounds;
