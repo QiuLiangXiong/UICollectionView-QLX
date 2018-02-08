@@ -46,10 +46,9 @@ _在podfile文件中加入_ `pod 'UICollectionView-QLX', '~> 2.5.0'` _或_ `pod 
 }
 //提供数据
   QLXSectionData * sectionData = [QLXSectionData new];
-    sectionData.cellDataList = cellDataList;
+    sectionData.cellDataList = cellDataList;//支持view 也支持data
     sectionData.headerData = headerView;//支持view 也支持data
-    sectionData.decorationData = [ADecroationView class];
-    sectionData.footerData = [ACollectionViewFooterData new];
+    sectionData.footerData = [ACollectionViewFooterData new];//支持view 也支持data
     self.dataList = @[sectionData];
 
 //更多使用方法下载Demo学习...
