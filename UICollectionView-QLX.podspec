@@ -20,20 +20,30 @@ s.subspec 'Other' do |ss|
 
     ss.subspec 'edit' do |sss|
         sss.source_files = "UICollectionView+QLX/Other/edit/*.{h,m}"
+        sss.dependency 'UICollectionView+QLX'
+        sss.dependency 'UICollectionView+QLX/Other'
     end
 
     ss.subspec 'resort' do |sss|
         sss.source_files = "UICollectionView+QLX/Other/resort/*.{h,m}"
+        sss.dependency 'UICollectionView+QLX'
+        sss.dependency 'UICollectionView+QLX/Other'
     end
 
     ss.subspec 'sync' do |sss|
         sss.source_files = "UICollectionView+QLX/Other/sync/*.{h,m}"
+        sss.dependency 'UICollectionView+QLX'
+        sss.dependency 'UICollectionView+QLX/Other'
     end
     ss.subspec 'transition' do |sss|
         sss.source_files = "UICollectionView+QLX/Other/transition/*.{h,m}"
+        sss.dependency 'UICollectionView+QLX'
+        sss.dependency 'UICollectionView+QLX/Other'
     end
      ss.subspec 'wrap' do |sss|
         sss.source_files = "UICollectionView+QLX/Other/wrap/*.{h,m}"
+        sss.dependency 'UICollectionView+QLX'
+        sss.dependency 'UICollectionView+QLX/Other'
     end
 
   end
