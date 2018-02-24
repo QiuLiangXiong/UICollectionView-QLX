@@ -15,7 +15,7 @@ s.xcconfig = { "OTHER_LINK_FLAG" => '$(inherited) -ObjC'}
 s.framework  = "UIKit"  
 
 s.subspec 'Core' do |ss|	
-    ss.source_files = "UICollectionView-QLX/Core/*.{h,m}", "UICollectionView-QLX/Sync/*.{h,m}","UICollectionView-QLX/Sync/*.{h,m}","UICollectionView-QLX/Delegator/*.{h,m}","UICollectionView-QLX/Edit/*.{h,m}","UICollectionView-QLX/Resort/*.{h,m}","UICollectionView-QLX/Transition/*.{h,m}","UICollectionView-QLX/Wrap/*.{h,m}"
+    ss.source_files = "UICollectionView-QLX/Core/*.{h,m}", "UICollectionView-QLX/Sync/*.{h,m}","UICollectionView-QLX/Common/*.{h,m}","UICollectionView-QLX/Delegator/*.{h,m}","UICollectionView-QLX/Edit/*.{h,m}","UICollectionView-QLX/Resort/*.{h,m}","UICollectionView-QLX/Transition/*.{h,m}","UICollectionView-QLX/Wrap/*.{h,m}"
  end
 
 
