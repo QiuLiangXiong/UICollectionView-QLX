@@ -10,7 +10,8 @@
 #import "UICollectionViewDataSourceDelegator.h"
 #import "UICollectionViewDataSourceDelegator+CollectionViewDelegator.h"
 #import "QLXWeakObject.h"
-#import <objc/runtime.h>
+#import "objc/runtime.h"
+
 
 @implementation UICollectionView(QLX)
 
@@ -27,10 +28,8 @@
     layout.minimumLineSpacing = 0;
     
     CGSize size = [UIScreen mainScreen].bounds.size;
-    
     UICollectionView * instance = [[[self class] alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height - 64) collectionViewLayout:layout];
     instance.backgroundColor = [UIColor clearColor];
-    
     return instance;
 }
 

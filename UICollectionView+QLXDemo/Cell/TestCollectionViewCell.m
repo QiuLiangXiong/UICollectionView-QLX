@@ -7,7 +7,7 @@
 //
 
 #import "TestCollectionViewCell.h"
-#import "UICollectionView+QLX.h"
+#import "UICollectionView-QLX.h"
 
 @interface TestCollectionViewCell()
 

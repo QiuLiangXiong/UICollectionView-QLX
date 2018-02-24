@@ -7,14 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QLXSectionData.h"
-#import "NSObject+QLXView.h"
-#import "UIView+QLX.h"
-#import "UIView+QLXCellDelegate.h"
-#import "NSMutableArray+QLX.h"
-#import "UICollectionViewCell+QLXEdit.h"
 
-
+@class QLXSectionData;
 @protocol QLXCollectionViewDataSource;
 
 @interface UICollectionView(QLX)

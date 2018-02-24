@@ -37,7 +37,7 @@ static NSString * const DefaultReusableViewIdentifier = @"UICollectionReusableVi
 
 
 
-#pragma mark - public
+#pragma mark - public 
 
 
 #pragma mark - UICollectionViewDataSource

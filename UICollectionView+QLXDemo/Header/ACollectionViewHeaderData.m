@@ -8,7 +8,7 @@
 
 #import "ACollectionViewHeaderData.h"
 #import "ACollectionViewHeader.h"
-#import "UICollectionView+QLX.h"
+#import "UICollectionView-QLX.h"
 
 @implementation ACollectionViewHeaderData
 

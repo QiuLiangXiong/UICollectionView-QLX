@@ -10,6 +10,7 @@
 #import "UICollectionView+QLX.h"
 #import "NSMutableArray+QLX.h"
 #import "QLXCollectionViewUpdateUtil.h"
+#import "QLXSectionData.h"
 
 @implementation QLXDataSource
 

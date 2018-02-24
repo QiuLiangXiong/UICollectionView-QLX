@@ -140,6 +140,7 @@
 		2D3CA53B202C7FF20021AC2A /* QLXWrapReuseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLXWrapReuseCollectionViewCell.m; sourceTree = "<group>"; };
 		2D3CA53C202C7FF20021AC2A /* QLXWrapViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLXWrapViewData.h; sourceTree = "<group>"; };
 		2D3CA53D202C7FF20021AC2A /* QLXWrapViewData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLXWrapViewData.m; sourceTree = "<group>"; };
+		2D3CA555202D9B790021AC2A /* UICollectionView-QLX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView-QLX.h"; sourceTree = "<group>"; };
 		2D4270F61FAF070300BC1969 /* TestCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewCell.h; sourceTree = "<group>"; };
 		2D4270F71FAF070300BC1969 /* TestCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewCell.m; sourceTree = "<group>"; };
 		2D60C6991FB2D64E00F1523E /* ViewHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewHeader.h; sourceTree = "<group>"; };
@@ -265,6 +266,7 @@
 		2D3CA506202C7FF20021AC2A /* UICollectionView+QLX */ = {
 			isa = PBXGroup;
 			children = (
+				2D3CA555202D9B790021AC2A /* UICollectionView-QLX.h */,
 				2D3CA50D202C7FF20021AC2A /* Core */,
 				2D3CA527202C7FF20021AC2A /* Sync */,
 				2D3CA507202C7FF20021AC2A /* Common */,

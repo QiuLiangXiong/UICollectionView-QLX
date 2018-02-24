@@ -7,7 +7,7 @@
 //
 
 #import "ACollectionViewHeader.h"
-#import "UICollectionView+QLX.h"
+#import "UICollectionView-QLX.h"
 @implementation ACollectionViewHeader
 
 -(instancetype)initWithFrame:(CGRect)frame{

@@ -8,7 +8,7 @@
 
 #import "ACollectionViewCell.h"
 #import "ACollectionViewData.h"
-#import "UICollectionView+QLX.h"
+#import "UICollectionView-QLX.h"
 
 @interface ACollectionViewCell()
 

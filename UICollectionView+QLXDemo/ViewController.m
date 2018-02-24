@@ -14,7 +14,7 @@
 #import "ACollectionViewCell.h"
 #import "TestCollectionViewCell.h"
 #import "ViewHeader.h"
-#import "UICollectionView+QLX.h"
+#import "UICollectionView-QLX.h"
 #import "TestView.h"
 
 

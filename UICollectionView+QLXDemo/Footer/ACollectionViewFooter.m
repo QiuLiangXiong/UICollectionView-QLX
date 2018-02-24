@@ -7,7 +7,7 @@
 //
 
 #import "ACollectionViewFooter.h"
-#import "UICollectionView+QLX.h"
+#import "UICollectionView-QLX.h"
 
 @implementation ACollectionViewFooter
 
