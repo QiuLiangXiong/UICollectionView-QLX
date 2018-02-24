@@ -263,7 +263,7 @@
 			path = Footer;
 			sourceTree = "<group>";
 		};
-		2D3CA506202C7FF20021AC2A /* UICollectionView+QLX */ = {
+		2D3CA506202C7FF20021AC2A /* UICollectionView-QLX */ = {
 			isa = PBXGroup;
 			children = (
 				2D3CA555202D9B790021AC2A /* UICollectionView-QLX.h */,
@@ -276,7 +276,7 @@
 				2D3CA530202C7FF20021AC2A /* Transition */,
 				2D3CA533202C7FF20021AC2A /* Wrap */,
 			);
-			path = "UICollectionView+QLX";
+			path = "UICollectionView-QLX";
 			sourceTree = "<group>";
 		};
 		2D3CA507202C7FF20021AC2A /* Common */ = {
@@ -385,7 +385,7 @@
 		2DC141E41D7E7F7F008CFC59 = {
 			isa = PBXGroup;
 			children = (
-				2D3CA506202C7FF20021AC2A /* UICollectionView+QLX */,
+				2D3CA506202C7FF20021AC2A /* UICollectionView-QLX */,
 				2DC141EF1D7E7F7F008CFC59 /* UICollectionView+QLXDemo */,
 				2DC142091D7E7F80008CFC59 /* UICollectionView+QLXDemoTests */,
 				2DC142141D7E7F80008CFC59 /* UICollectionView+QLXDemoUITests */,
